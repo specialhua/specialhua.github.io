@@ -4,25 +4,13 @@
   
   
   <entry>
-    <title>[object Object]</title>
-    <link href="/2024/11/12/obsidian/"/>
-    <url>/2024/11/12/obsidian/</url>
+    <title>{{title}}</title>
+    <link href="/2024/11/12/ob/"/>
+    <url>/2024/11/12/ob/</url>
     
-    <content type="html"><![CDATA[<p>just a test</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>心情</category>
-      
-    </categories>
+    <content type="html"><![CDATA[<h2 id="这是标题"><a href="#这是标题" class="headerlink" title="这是标题"></a>这是标题</h2><ul><li>一</li><li>二</li><li>三</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span>() &#123;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>System.out.println(<span class="hljs-string">&quot;Hello World&quot;</span>)<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
     
     
-    <tags>
-      
-      <tag>test</tag>
-      
-    </tags>
     
   </entry>
   
