@@ -4,11 +4,11 @@
   
   
   <entry>
-    <title>{{title}}</title>
-    <link href="/2024/11/12/ob/"/>
-    <url>/2024/11/12/ob/</url>
+    <title>obsidian</title>
+    <link href="/2024/11/12/obsidian/"/>
+    <url>/2024/11/12/obsidian/</url>
     
-    <content type="html"><![CDATA[<h2 id="这是标题"><a href="#这是标题" class="headerlink" title="这是标题"></a>这是标题</h2><ul><li>一</li><li>二</li><li>三</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span>() &#123;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>System.out.println(<span class="hljs-string">&quot;Hello World&quot;</span>)<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="这是标题"><a href="#这是标题" class="headerlink" title="这是标题"></a>这是标题</h2><ul><li>一</li><li>二</li><li>三</li></ul><pre><code class="java">public class Main() &#123;    public static void main(String[] args) &#123;        System.out.println(&quot;Hello World&quot;)    &#125;&#125;```---title: &#123;&#123;title&#125;&#125;share: truecategories: tags: date: 2024-11-13T01:11:42+08:00updated: 2024-11-13T01:11:59+08:00---</code></pre>]]></content>
     
     
     
