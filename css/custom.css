@@ -1,10 +1,11 @@
 /* 说说内容区域的样式重置 */
 .cbp_tmtimeline > li .cbp_tmlabel {
-    background: transparent !important;  /* 移除深色背景 */
-    padding: 1rem 0;
+    /* 使用略微不同的背景色 */
+    background: rgba(255, 255, 255, 0.2) !important;  /* 浅色叠加，产生微妙区别 */
+    border-radius: 8px;  /* 添加圆角 */
+    padding: 1rem;
     margin: 1rem 0;
-    border: none !important;
-    border-bottom: 1px solid var(--line-color, rgba(0,0,0,0.1)) !important;
+    box-shadow: 0 0 3px 5px rgba(255, 255, 255, 0.4);  /* 非常轻微的边框效果 */
 }
 
 /* 针对浅色主题的特定样式 */
@@ -15,10 +16,10 @@
 }
 
 /* 针对深色主题的特定样式 */
-[data-user-color-scheme="dark"] .cbp_tmlabel,
-.dark .cbp_tmlabel {
-    background: transparent !important;
-    color: var(--text-color, #c4c6c9) !important;
+[data-user-color-scheme="dark"] .cbp_tmtimeline > li .cbp_tmlabel,
+.dark .cbp_tmtimeline > li .cbp_tmlabel {
+    background: rgba(38, 42, 47, 0.03) !important;  /* 深色主题下的微妙背景 */
+    box-shadow: 3px 4px 2px 1px rgba(255, 255, 255, 0.1);
 }
 
 /* 移除所有多余的样式 */
