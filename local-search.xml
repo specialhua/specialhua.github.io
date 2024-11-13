@@ -26,10 +26,22 @@
     
     <categories>
       
-      <category>技术,学习</category>
+      <category>技术</category>
+      
+      <category>学习</category>
       
     </categories>
     
+    
+    <tags>
+      
+      <tag>sql</tag>
+      
+      <tag>数据库</tag>
+      
+      <tag>开窗函数</tag>
+      
+    </tags>
     
   </entry>
   
