@@ -117,7 +117,7 @@ navbar:
 ```
 
 
-{% WARNING %}
+{% note info %}
 请注意文件路径，我采用npm安装fluid主题，如果你是采用安装指南中方式二安装的主题：
 那么你的ejs文件应当在themes/fluid文件夹下
 ![安装方式](https://cdn.specialhua.top/hexo_img/Screenshot_20-11月_02-04-13_23218.webp)
