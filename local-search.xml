@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>记一次qexo说说Error500崩溃</title>
+    <link href="/2024/11/28/%E8%AE%B0%E4%B8%80%E6%AC%A1qexo%E8%AF%B4%E8%AF%B4Error500%E5%B4%A9%E6%BA%83/"/>
+    <url>/2024/11/28/%E8%AE%B0%E4%B8%80%E6%AC%A1qexo%E8%AF%B4%E8%AF%B4Error500%E5%B4%A9%E6%BA%83/</url>
+    
+    <content type="html"><![CDATA[<h3 id="表现"><a href="#表现" class="headerlink" title="表现"></a>表现</h3><p>在一次用手机（IOS18.1 safari）更新说说的标签时，成功发布说说，但是qexo后台访问说说页面时直接报错Error 500，表现为页面<code>https://qexo地址/talks.html</code>页面报错如图，但是其他后台管理页面正常。尝试通过qexo配置手册里的修复、重新部署均无法恢复。<br><img src="https://cdn.specialhua.top/hexo_img/Screenshot_28-11%E6%9C%88_02-30-03_193.png-pic" srcset="/img/loading.gif" lazyload alt="崩溃页面"></p><h3 id="排查"><a href="#排查" class="headerlink" title="排查"></a>排查</h3><p>搜索qexo的issues，尝试查找<code>500</code>关键字，发现有关回答与数据库相关，于是想到可能是数据库字段内容出错导致炸了。</p><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs django"><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> warning %&#125;</span><span class="language-xml"></span><br><span class="language-xml">我使用的是qexo一键部署至vercel，数据库使用的是neondb</span><br><span class="language-xml">**如果你使用的是其他部署方式，或自建服务器方式，请根据自己的情况查看数据库表格的存储位置**</span><br><span class="language-xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><br></code></pre></td></tr></table></figure><p>打开vercel，进入到qexo项目，在<code>Storage</code>选项内，右边有<code>Open in Neon</code>按钮，点击后进入数据库后台，如图，在<code>BRANCH——Tables——hexoweb_talkmodel</code>中可以看到<strong>奇怪</strong>的一点：<br>time字段，测试崩溃的数据值为<code>NaN</code>，猜测是数据库没对time字段，或是qexo没对该字段进行约束导致，可能是手机在更新说说时，意外的在时间字段传入了<code>NaN</code>，导致qexo说说后台无法正常读取数据，从而报错。<br><img src="https://cdn.specialhua.top/hexo_img/Screenshot_28-11%E6%9C%88_02-38-35_5582.png-pic" srcset="/img/loading.gif" lazyload alt="Neondb后台"></p><h3 id="Bug复现"><a href="#Bug复现" class="headerlink" title="Bug复现"></a>Bug复现</h3><p>正如上图，在qexo后台说说管理页面，随便新建一条说说，将<code>更新于：</code>(yyyy-mm-dd hh:mi:ss格式)，直接写上NAN（删除时间留空是可以的，会自动捕获当前时间并转换为Unix时间戳），能够正常提交说说，但是当再次进入说说管理页面时，就报错了</p><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>进入neondb后台管理，将<code>time</code>字段的值改为正常的Unix时间戳，可以用<a href="https://tool.chinaz.com/tools/unixtime.aspx">时间戳转换器</a>进行转换，或者嫌麻烦，直接填写上下类似的值，并<code>Save change</code>即可。等待数据库update数据之后，再次进入说说页面就正常了<br><img src="https://cdn.specialhua.top/hexo_img/Screenshot_28-11%E6%9C%88_02-46-03_9311.png-pic" srcset="/img/loading.gif" lazyload alt="Screenshot_28-11月_02-46-03_9311.png"></p><h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>已同步提交此bug至<a href="https://github.com/Qexo/Qexo/issues/592">qexo issues</a>，向作者反馈问题，后续如有更新可能会修复bug</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>blog</tag>
+      
+      <tag>qexo</tag>
+      
+      <tag>error</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>为hexo博客Fluid主题添加书单</title>
     <link href="/2024/11/27/%E4%B8%BAhexo%E5%8D%9A%E5%AE%A2Fluid%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E4%B9%A6%E5%8D%95/"/>
     <url>/2024/11/27/%E4%B8%BAhexo%E5%8D%9A%E5%AE%A2Fluid%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E4%B9%A6%E5%8D%95/</url>
@@ -219,9 +248,9 @@
     
     <tags>
       
-      <tag>随想</tag>
-      
       <tag>思考</tag>
+      
+      <tag>随想</tag>
       
     </tags>
     
