@@ -3,8 +3,8 @@
   <title>InkCodes</title>
   <icon>https://inkcodes.com/img/myfavion.svg</icon>
   <subtitle>读书，学习，睡觉</subtitle>
-  <link href="https://inkcodes.com/atmo.xml" rel="self"/>
-  
+  <link href="https://inkcodes.com/feed.xml" rel="self"/>
+  <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://inkcodes.com/"/>
   <updated>2024-11-27T18:11:05.000Z</updated>
   <id>https://inkcodes.com/</id>
