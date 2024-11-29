@@ -258,6 +258,13 @@
   </url>
   
   <url>
+    <loc>https://inkcodes.com/categories/%E6%8A%80%E6%9C%AF/%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2024-11-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://inkcodes.com/categories/%E7%94%9F%E6%B4%BB/%E6%89%80%E6%80%9D/</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -266,13 +273,6 @@
   
   <url>
     <loc>https://inkcodes.com/categories/%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2024-11-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://inkcodes.com/categories/%E6%8A%80%E6%9C%AF/%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
