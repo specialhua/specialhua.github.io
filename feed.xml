@@ -92,9 +92,9 @@
     <category term="技术" scheme="https://inkcodes.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="web" scheme="https://inkcodes.com/tags/web/"/>
-    
     <category term="blog" scheme="https://inkcodes.com/tags/blog/"/>
+    
+    <category term="web" scheme="https://inkcodes.com/tags/web/"/>
     
   </entry>
   
