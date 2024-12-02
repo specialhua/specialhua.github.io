@@ -211,9 +211,9 @@
     <category term="技术" scheme="https://inkcodes.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="TG" scheme="https://inkcodes.com/tags/TG/"/>
-    
     <category term="bot" scheme="https://inkcodes.com/tags/bot/"/>
+    
+    <category term="TG" scheme="https://inkcodes.com/tags/TG/"/>
     
   </entry>
   
@@ -266,9 +266,9 @@
     <category term="所思" scheme="https://inkcodes.com/categories/%E7%94%9F%E6%B4%BB/%E6%89%80%E6%80%9D/"/>
     
     
-    <category term="随想" scheme="https://inkcodes.com/tags/%E9%9A%8F%E6%83%B3/"/>
-    
     <category term="思考" scheme="https://inkcodes.com/tags/%E6%80%9D%E8%80%83/"/>
+    
+    <category term="随想" scheme="https://inkcodes.com/tags/%E9%9A%8F%E6%83%B3/"/>
     
   </entry>
   
@@ -292,13 +292,13 @@
     <category term="技术" scheme="https://inkcodes.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="TG" scheme="https://inkcodes.com/tags/TG/"/>
-    
-    <category term="bot" scheme="https://inkcodes.com/tags/bot/"/>
-    
     <category term="wechat" scheme="https://inkcodes.com/tags/wechat/"/>
     
     <category term="EFB" scheme="https://inkcodes.com/tags/EFB/"/>
+    
+    <category term="bot" scheme="https://inkcodes.com/tags/bot/"/>
+    
+    <category term="TG" scheme="https://inkcodes.com/tags/TG/"/>
     
   </entry>
   
