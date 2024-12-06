@@ -40,9 +40,9 @@
     
     <category term="Fluid" scheme="https://inkcodes.com/tags/Fluid/"/>
     
-    <category term="web" scheme="https://inkcodes.com/tags/web/"/>
-    
     <category term="hexo" scheme="https://inkcodes.com/tags/hexo/"/>
+    
+    <category term="web" scheme="https://inkcodes.com/tags/web/"/>
     
   </entry>
   
