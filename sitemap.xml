@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://inkcodes.com/2025/02/05/%E7%94%A8python%E7%BB%99%E4%B9%A6%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%81%9A%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7/</loc>
+    
+    <lastmod>2025-02-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://inkcodes.com/books/index.html</loc>
     
     <lastmod>2025-02-05</lastmod>
@@ -222,13 +231,6 @@
   </url>
   
   <url>
-    <loc>https://inkcodes.com/tags/web/</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://inkcodes.com/tags/blog/</loc>
     <lastmod>2025-02-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -244,6 +246,13 @@
   
   <url>
     <loc>https://inkcodes.com/tags/Fluid/</loc>
+    <lastmod>2025-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://inkcodes.com/tags/web/</loc>
     <lastmod>2025-02-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
