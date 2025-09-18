@@ -213,11 +213,11 @@
     
     <category term="blog" scheme="https://inkcodes.com/tags/blog/"/>
     
-    <category term="Fluid" scheme="https://inkcodes.com/tags/Fluid/"/>
-    
     <category term="web" scheme="https://inkcodes.com/tags/web/"/>
     
     <category term="hexo" scheme="https://inkcodes.com/tags/hexo/"/>
+    
+    <category term="Fluid" scheme="https://inkcodes.com/tags/Fluid/"/>
     
   </entry>
   
@@ -273,7 +273,7 @@
     
     <category term="书单" scheme="https://inkcodes.com/tags/%E4%B9%A6%E5%8D%95/"/>
     
-    <category term="Fluid" scheme="https://inkcodes.com/tags/Fluid/"/>
+    <category term="fluid" scheme="https://inkcodes.com/tags/fluid/"/>
     
   </entry>
   
