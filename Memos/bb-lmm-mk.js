@@ -551,6 +551,27 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
 }
 
 /* 列表长卡片布局覆盖 */
+.memos-hero {
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
+}
+
+.memos-hero h1 {
+  margin: 0;
+  color: #1b1b1b;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.memos-hero p {
+  margin: 0.9rem 0 0;
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
 .bb-timeline {
   position: static;
   max-width: 760px;
@@ -563,45 +584,52 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
   left: auto !important;
   top: auto !important;
   opacity: 1;
-  padding: 0 0 1.7rem;
+  padding: 0;
 }
 
 .bb-timeline .memo-item:not(:last-child) {
-  border-bottom: 1px solid rgba(140, 140, 140, 0.18);
-  margin-bottom: 1.7rem;
+  margin-bottom: 1.35rem;
 }
 
 .bb-timeline .bb-item {
-  background: transparent;
-  border: none;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(120, 120, 120, 0.22);
   border-radius: 0;
   box-shadow: none;
-  padding: 0;
+  padding: 0.9rem 1.1rem 0.8rem;
 }
 
 .bb-timeline .bb-item:hover {
   box-shadow: none;
   transform: none;
+  border-color: rgba(120, 120, 120, 0.32);
 }
 
 .memo-head {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: flex-start;
-  gap: 0.9rem;
-  margin-bottom: 0.75rem;
+  gap: 0.7rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid rgba(120, 120, 120, 0.16);
 }
 
 .memo-meta {
   min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  flex-wrap: wrap;
 }
 
 .memo-name {
   display: block;
   color: #222;
-  font-size: 0.98rem;
+  font-size: 13px;
   font-weight: 600;
   line-height: 1.2;
+  letter-spacing: 0.05em;
 }
 
 .memo-time-link {
@@ -616,31 +644,55 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
 .memo-foot {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 0.75rem;
-  margin-top: 0.2rem;
-  margin-bottom: 0.2rem;
+  margin-top: 0.7rem;
+  margin-bottom: 0;
 }
 
 .bb-cont {
-  margin-bottom: 0.85rem;
-  line-height: 1.75;
+  margin-bottom: 0;
+  line-height: 1.85;
+  font-size: 15px;
+  letter-spacing: 0.01em;
 }
 
 .bb-cont p {
-  margin: 0.45rem 0;
+  margin: 0.5rem 0;
+  color: inherit;
 }
 
 .bb-tool {
   justify-content: flex-start;
-  padding-top: 0.35rem;
+  padding-top: 0;
   border-top: none;
   margin-top: 0;
+  opacity: 0.78;
+  transform: none;
+  transform-origin: left center;
+  font-size: 12px;
+}
+
+.bb-info {
+  margin-top: 0;
+  font-size: 12px;
+  color: inherit;
 }
 
 .datatime {
   color: #777;
   white-space: nowrap;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace;
+}
+
+[data-user-color-scheme="light"] .memos-hero h1 {
+  color: #1b1b1b;
+}
+
+[data-user-color-scheme="light"] .memos-hero p {
+  color: #666;
 }
 
 [data-user-color-scheme="light"] .memo-name {
@@ -651,43 +703,77 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
   color: #7a7a7a;
 }
 
+[data-user-color-scheme="light"] .bb-timeline .bb-item {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(120, 120, 120, 0.22);
+}
+
+[data-user-color-scheme="light"] .memo-head {
+  border-bottom-color: rgba(120, 120, 120, 0.16);
+}
+
+[data-user-color-scheme="light"] .bb-timeline .bb-item:hover {
+  border-color: rgba(120, 120, 120, 0.34);
+}
+
 [data-user-color-scheme="dark"] .memo-name {
   color: var(--text-color);
+}
+
+[data-user-color-scheme="dark"] .memos-hero h1 {
+  color: #f2f2f2;
+}
+
+[data-user-color-scheme="dark"] .memos-hero p {
+  color: rgba(220, 220, 220, 0.7);
 }
 
 [data-user-color-scheme="dark"] .datatime {
   color: var(--sec-text-color);
 }
 
-[data-user-color-scheme="dark"] .bb-timeline .memo-item:not(:last-child) {
+[data-user-color-scheme="dark"] .memo-head {
   border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 
+[data-user-color-scheme="dark"] .bb-timeline .bb-item {
+  background: rgba(255, 255, 255, 0.015);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+[data-user-color-scheme="dark"] .bb-timeline .bb-item:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
 @media (max-width: 768px) {
+  .memos-hero {
+    margin-bottom: 2rem;
+  }
+
   .memo-head {
     align-items: flex-start;
   }
+
+  .bb-timeline .bb-item {
+    padding: 0.9rem 0.95rem 0.8rem;
+  }
 }
-`;Utils.loadCssCode(allCSS);const AppState={limit:bbMemo.limit,memos:bbMemo.memos,memosOpenId:null,mePage:1,offset:0,nextLength:0,nextDom:"",apiV1:"",bbDom:bbMemo.domId?document.querySelector(bbMemo.domId):null,isLoading:false,tageFilter:"",emactionApi:bbMemo.emactionApi};const load='<div class="bb-load"><button class="load-btn button-load">加载中……</button></div>';const loading=`<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>`;if(AppState.bbDom){Utils.safeExecute(()=>fetchStatus(),"初始化失败").catch(e=>{console.error("应用启动失败:",e);renderError(e.message||"加载失败，请刷新页面重试")})}async function fetchStatus(){if(!AppState.memos){throw new Error("请在 index.md 中配置 memos 地址")}const e=`${AppState.memos}api/v1/memos?pageSize=1`;const t=await fetch(e);if(!t.ok){throw new Error(`Memos API 探测失败，HTTP status: ${t.status}`)}const o=t.headers.get("content-type")||"";if(!o.includes("application/json")){throw new Error("Memos API 探测失败，返回的不是 JSON 数据")}AppState.apiV1="v1/";let r=Utils.getQueryVariable("memo")||"";if(r){getMemoOne(r)}else{newApiV1(AppState.apiV1)}}function getMemoOne(e){let t=`<iframe style="width:100%;height:100vh;" src="${e}" frameBorder="0"></iframe>`;let o=document.querySelector(".content")||document.querySelector(bbMemo.domId);o.innerHTML=t}function newApiV1(e){getFirstList(e);meNums(e);AppState.bbDom.innerHTML=loading}function bindLoadMoreButton(o){setTimeout(()=>{const e=document.querySelector("button.button-load");if(e&&!e.hasAttribute("data-bound")){e.setAttribute("data-bound","true");const t=function(e){e.preventDefault();e.stopPropagation();const t=e.target;t.textContent="";t.classList.add("loading");t.disabled=true;updateHTMl(AppState.nextDom);if(AppState.nextDom.memos.length===0||AppState.nextDom.memos.length<AppState.limit){t.classList.remove("loading");t.textContent="没有更多了";t.disabled=true}else{getNextList(o||AppState.apiV1)}};e.addEventListener("click",t);e._clickHandler=t}},100)}async function getFirstList(t){try{AppState.bbDom.insertAdjacentHTML("afterend",load);bindLoadMoreButton(t);const o=encodeURIComponent(`creator_id == ${bbMemo.creatorId}`);let e=AppState.memos+"api/"+t+"memos?creatorId="+bbMemo.creatorId+"&filter="+o+"&pageSize="+AppState.limit;const r=await fetch(e);if(!r.ok){throw new Error(`HTTP error! status: ${r.status}`)}const a=await r.json();updateHTMl(a);AppState.offset=a.nextPageToken;if(AppState.offset===""||!a.memos||a.memos.length===0){const i=document.querySelector("button.button-load");i.textContent="没有更多了";i.disabled=true;return}AppState.mePage++;getNextList(t)}catch(e){console.error("获取数据失败:",e);renderError(`加载失败：${e.message||"请刷新页面重试"}`)}}async function getNextList(t){try{if(AppState.isLoading)return;if(AppState.offset===""){const a=document.querySelector("button.button-load");a.textContent="没有更多了";a.disabled=true;return}AppState.isLoading=true;let e=AppState.memos+"api/"+t+"memos?creatorId="+bbMemo.creatorId+"&pageSize="+AppState.limit+"&pageToken="+AppState.offset;if(AppState.tageFilter){e=e+'&filter=tag in ["'+AppState.tageFilter+'"]'}const o=await fetch(e);if(!o.ok){throw new Error(`HTTP error! status: ${o.status}`)}const r=await o.json();AppState.nextDom=r;AppState.mePage++;AppState.offset=r.nextPageToken}catch(e){console.error("预加载下一页失败:",e)}finally{AppState.isLoading=false}}function meNums(e){let t=document.querySelector(".bb-load")}function getCreatorUsername(e=""){return e.split("/").pop()||""}function getAuthorDisplayName(e){return bbMemo.authorName||getCreatorUsername(e.creator)||"Memos"}async function updateHTMl(e){if(!e||!e.memos){console.error("数据格式错误");return}let u="",r="";const g=/#([^#\s!.,;:?"'()]+)(?= )/g,h=/\!\[(.*?)\]\((.*?)\)/g,v=/\[(.*?)\]\((.*?)\)/g,x=/<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g,y=/<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g,w=/<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g,k=/<a.*?href="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g,S=/<a.*?href="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g,A=/<a.*?href="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\".*?>.*<\/a>/g;if(typeof marked==="undefined"){console.error("marked库未加载");return}marked.setOptions({breaks:false,smartypants:false,langPrefix:"language-",headerIds:false,mangle:false});const L=e.memos;for(let f=0;f<L.length;f++){let e=L[f].name;let t=AppState.memos+e;let o=getAuthorDisplayName(L[f]);let r=L[f].content+" ";let s="";s+=r.replace(g,"").replace(h,"").replace(v,'<a class="primary" href="$2" target="_blank">$1</a>');let a=r.match(g);let i="";if(a){i=a.map(e=>{return`<span class='tag-span' onclick='getTypeOfMemos(this)'>${e}</span> `}).join("");s=i+s.trim()}s=marked.parse(s).replace(x,"<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>").replace(y,"<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>").replace(w,"<meting-js auto='https://y.qq.com/n/yqq/song$1.html'></meting-js>").replace(k,"<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>").replace(S,"<div class='video-wrapper'><iframe src='https://player.youku.com/embed/$1' frameborder=0 'allowfullscreen'></iframe></div>").replace(A,"<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>");let n=L[f].content.match(h)||"",l="";if(n){let t=n.length,o="";if(t!==1){let e=" grid grid-"+t}n.forEach(e=>{let t=e.replace(/!\[.*?\]\((.*?)\)/g,"$1");o+=`<figure class="gallery-thumbnail"><img class="img thumbnail-image" loading="lazy" decoding="async" src="${t}"/></figure>`});s+=`<div class="resimg${l}">${o}</div>`}if(L[f].resources&&L[f].resources.length>0){let a=L[f].resources;let i="",n="",l=0;for(let r=0;r<a.length;r++){let e=a[r].type.slice(0,5);let t=a[r].externalLink;let o=t?t:AppState.memos+"file/"+(a[r].publicId||a[r].name)+"/"+a[r].filename+"?thumbnail=1";if(e=="image"){i+=`<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="${o}"/></figure>`;l=l+1}else if(e=="video"){i+=`<div class="video-wrapper"><video controls><source src="${o}" type="video/mp4"></video></div>`}else{n+=`<a target="_blank" rel="noreferrer" href="${o}">${a[r].name}</a>`}}if(i){let e="";e="grid grid-"+l;s+=`<div class="resimg ${e}">${i}</div>`}if(n){s+=`<p class="bb-source">${n}</p>`}}let d=AppState.memos.replace(/https\:\/\/(.*\.)?(.*)\..*/,"id-$2-");let c=`<emoji-reaction theme="system" class="reaction" endpoint="${AppState.emactionApi}" reacttargetid="${d+"memo-"+e}" style="line-height:normal;display:inline-flex;"></emoji-reaction>`;let m="";let b=L[f].displayTime||L[f].updateTime||L[f].createTime;let p=new Date(b).toLocaleString();u+=`<div data-id="memo-${e}" class="memo-item">
+`;Utils.loadCssCode(allCSS);const AppState={limit:bbMemo.limit,memos:bbMemo.memos,memosOpenId:null,mePage:1,offset:0,nextLength:0,nextDom:"",apiV1:"",bbDom:bbMemo.domId?document.querySelector(bbMemo.domId):null,isLoading:false,tageFilter:"",emactionApi:bbMemo.emactionApi};const load='<div class="bb-load"><button class="load-btn button-load">加载中……</button></div>';const loading=`<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>`;if(AppState.bbDom){Utils.safeExecute(()=>fetchStatus(),"初始化失败").catch(e=>{console.error("应用启动失败:",e);renderError(e.message||"加载失败，请刷新页面重试")})}async function fetchStatus(){if(!AppState.memos){throw new Error("请在 index.md 中配置 memos 地址")}const e=`${AppState.memos}api/v1/memos?pageSize=1`;const t=await fetch(e);if(!t.ok){throw new Error(`Memos API 探测失败，HTTP status: ${t.status}`)}const o=t.headers.get("content-type")||"";if(!o.includes("application/json")){throw new Error("Memos API 探测失败，返回的不是 JSON 数据")}AppState.apiV1="v1/";let r=Utils.getQueryVariable("memo")||"";if(r){getMemoOne(r)}else{newApiV1(AppState.apiV1)}}function getMemoOne(e){let t=`<iframe style="width:100%;height:100vh;" src="${e}" frameBorder="0"></iframe>`;let o=document.querySelector(".content")||document.querySelector(bbMemo.domId);o.innerHTML=t}function newApiV1(e){getFirstList(e);meNums(e);AppState.bbDom.innerHTML=loading}function bindLoadMoreButton(o){setTimeout(()=>{const e=document.querySelector("button.button-load");if(e&&!e.hasAttribute("data-bound")){e.setAttribute("data-bound","true");const t=function(e){e.preventDefault();e.stopPropagation();const t=e.target;t.textContent="";t.classList.add("loading");t.disabled=true;updateHTMl(AppState.nextDom);if(AppState.nextDom.memos.length===0||AppState.nextDom.memos.length<AppState.limit){t.classList.remove("loading");t.textContent="没有更多了";t.disabled=true}else{getNextList(o||AppState.apiV1)}};e.addEventListener("click",t);e._clickHandler=t}},100)}async function getFirstList(t){try{AppState.bbDom.insertAdjacentHTML("afterend",load);bindLoadMoreButton(t);const o=encodeURIComponent(`creator_id == ${bbMemo.creatorId}`);let e=AppState.memos+"api/"+t+"memos?creatorId="+bbMemo.creatorId+"&filter="+o+"&pageSize="+AppState.limit;const r=await fetch(e);if(!r.ok){throw new Error(`HTTP error! status: ${r.status}`)}const a=await r.json();updateHTMl(a);AppState.offset=a.nextPageToken;if(AppState.offset===""||!a.memos||a.memos.length===0){const i=document.querySelector("button.button-load");i.textContent="没有更多了";i.disabled=true;return}AppState.mePage++;getNextList(t)}catch(e){console.error("获取数据失败:",e);renderError(`加载失败：${e.message||"请刷新页面重试"}`)}}async function getNextList(t){try{if(AppState.isLoading)return;if(AppState.offset===""){const a=document.querySelector("button.button-load");a.textContent="没有更多了";a.disabled=true;return}AppState.isLoading=true;let e=AppState.memos+"api/"+t+"memos?creatorId="+bbMemo.creatorId+"&pageSize="+AppState.limit+"&pageToken="+AppState.offset;if(AppState.tageFilter){e=e+'&filter=tag in ["'+AppState.tageFilter+'"]'}const o=await fetch(e);if(!o.ok){throw new Error(`HTTP error! status: ${o.status}`)}const r=await o.json();AppState.nextDom=r;AppState.mePage++;AppState.offset=r.nextPageToken}catch(e){console.error("预加载下一页失败:",e)}finally{AppState.isLoading=false}}function meNums(e){let t=document.querySelector(".bb-load")}function getCreatorUsername(e=""){return e.split("/").pop()||""}function getAuthorDisplayName(e){return bbMemo.authorName||getCreatorUsername(e.creator)||"Memos"}async function updateHTMl(e){if(!e||!e.memos){console.error("数据格式错误");return}let g="",r="";const u=/#([^#\s!.,;:?"'()]+)(?= )/g,h=/\!\[(.*?)\]\((.*?)\)/g,v=/\[(.*?)\]\((.*?)\)/g,x=/<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g,y=/<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g,w=/<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g,k=/<a.*?href="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g,S=/<a.*?href="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g,A=/<a.*?href="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\".*?>.*<\/a>/g;if(typeof marked==="undefined"){console.error("marked库未加载");return}marked.setOptions({breaks:false,smartypants:false,langPrefix:"language-",headerIds:false,mangle:false});const L=e.memos;for(let f=0;f<L.length;f++){let e=L[f].name;let t=AppState.memos+e;let o=getAuthorDisplayName(L[f]);let r=L[f].content+" ";let s="";s+=r.replace(u,"").replace(h,"").replace(v,'<a class="primary" href="$2" target="_blank">$1</a>');let a=r.match(u);let i="";if(a){i=a.map(e=>{return`<span class='tag-span' onclick='getTypeOfMemos(this)'>${e}</span> `}).join("");s=i+s.trim()}s=marked.parse(s).replace(x,"<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>").replace(y,"<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>").replace(w,"<meting-js auto='https://y.qq.com/n/yqq/song$1.html'></meting-js>").replace(k,"<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>").replace(S,"<div class='video-wrapper'><iframe src='https://player.youku.com/embed/$1' frameborder=0 'allowfullscreen'></iframe></div>").replace(A,"<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>");let n=L[f].content.match(h)||"",l="";if(n){let t=n.length,o="";if(t!==1){let e=" grid grid-"+t}n.forEach(e=>{let t=e.replace(/!\[.*?\]\((.*?)\)/g,"$1");o+=`<figure class="gallery-thumbnail"><img class="img thumbnail-image" loading="lazy" decoding="async" src="${t}"/></figure>`});s+=`<div class="resimg${l}">${o}</div>`}if(L[f].resources&&L[f].resources.length>0){let a=L[f].resources;let i="",n="",l=0;for(let r=0;r<a.length;r++){let e=a[r].type.slice(0,5);let t=a[r].externalLink;let o=t?t:AppState.memos+"file/"+(a[r].publicId||a[r].name)+"/"+a[r].filename+"?thumbnail=1";if(e=="image"){i+=`<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="${o}"/></figure>`;l=l+1}else if(e=="video"){i+=`<div class="video-wrapper"><video controls><source src="${o}" type="video/mp4"></video></div>`}else{n+=`<a target="_blank" rel="noreferrer" href="${o}">${a[r].name}</a>`}}if(i){let e="";e="grid grid-"+l;s+=`<div class="resimg ${e}">${i}</div>`}if(n){s+=`<p class="bb-source">${n}</p>`}}let d=AppState.memos.replace(/https\:\/\/(.*\.)?(.*)\..*/,"id-$2-");let m=`<emoji-reaction theme="system" class="reaction" endpoint="${AppState.emactionApi}" reacttargetid="${d+"memo-"+e}" style="line-height:normal;display:inline-flex;"></emoji-reaction>`;let c="";let b=L[f].displayTime||L[f].updateTime||L[f].createTime;let p=new Date(b).toLocaleString();g+=`<div data-id="memo-${e}" class="memo-item">
         <div class="bb-item">
           <div class="memo-head">
             <div class="memo-meta">
               <span class="memo-name">${o}</span>
-            </div>
-          </div>
-          <div class="bb-cont">
-            ${s}
-          </div>
-          <div class="memo-foot">
-            <div>
               <a class="memo-time-link" href="${t}" target="_blank" rel="noreferrer">
                 <time class="datatime" datetime="${b}">${p}</time>
               </a>
             </div>
           </div>
-          <div class="bb-tool">${c}</div>
+          <div class="bb-cont">
+            ${s}
+          </div>
+          <div class="memo-foot bb-tool">${m}</div>
           <div class="bb-info">
-            ${m}
+            ${c}
           </div>
         </div>
-      </div>`}const t=document.querySelector(".bb-timeline");let o=!!t;if(o){const a=document.createElement("div");a.innerHTML=u;const i=a.querySelectorAll(".memo-item");i.forEach(e=>{e.style.opacity="0";t.appendChild(e)});const n=document.querySelector("button.button-load");if(n){n.classList.remove("loading");n.textContent="加载更多";n.disabled=false;bindLoadMoreButton(AppState.apiV1)}}else{let e="<section class='bb-timeline'>";let t="</section>";r=e+u+t;let o=document.querySelector(".loader")||"";if(o)o.remove();AppState.bbDom.insertAdjacentHTML("beforeend",r);const n=document.querySelector("button.button-load");if(n){n.classList.remove("loading");n.textContent="加载更多";n.disabled=false;bindLoadMoreButton(AppState.apiV1)}}window.ViewImage&&ViewImage.init(".bb-cont img");window.Lately&&Lately.init({target:".datatime"});if(o){const i=document.querySelectorAll('.memo-item[style*="opacity: 0"]');i.forEach(e=>bindImageLoadEvents(e))}else{bindImageLoadEvents(document.querySelector(".bb-timeline"))}waitForImagesAndLayout(o)}function removeImagePlaceholder(e){e.style.backgroundImage="none";e.style.backgroundColor="transparent"}function bindImageLoadEvents(e){const t=e.querySelectorAll("img");let o=null;t.forEach(e=>{if(e.complete&&e.naturalHeight!==0){removeImagePlaceholder(e)}else{e.addEventListener("load",function(){removeImagePlaceholder(this);clearTimeout(o);o=setTimeout(()=>{initWaterfallLayout(false)},100)},{once:true});e.addEventListener("error",function(){removeImagePlaceholder(this);this.style.backgroundColor="#f0f0f0";this.style.backgroundImage="none";clearTimeout(o);o=setTimeout(()=>{initWaterfallLayout(false)},100)},{once:true})}})}function getTypeOfMemos(e){let t=`<div id="tag-list"></div>`;AppState.bbDom.insertAdjacentHTML("beforebegin",t);let o=e.innerHTML.replace("#","");let r=document.getElementById("tag-list");window.scrollTo({top:r.offsetTop-20,behavior:"smooth"});let a=`<span class='tag-span' onclick='reLoad()'>${e.innerHTML}</span>`;document.querySelector("#tag-list").innerHTML=a;let i=AppState.memos+"api/"+AppState.apiV1+"memos?creatorId="+bbMemo.creatorId+'&filter=tag in ["'+o+'"]&pageSize='+AppState.limit;AppState.tageFilter=o;AppState.mePage=1;fetchMemoDOM(i)}async function fetchMemoDOM(e){try{AppState.bbDom.innerHTML=loading;const t=await fetch(e);if(!t.ok){throw new Error(`HTTP error! status: ${t.status}`)}const o=await t.json();if(o){document.querySelector(bbMemo.domId).innerHTML="";const r=document.querySelector("button.button-load");updateHTMl(o);AppState.offset=o.nextPageToken;if(AppState.offset===""||!o.memos||o.memos.length===0){r.textContent="没有更多了";r.disabled=true;return}getNextList(AppState.apiV1)}else{alert("404 -_-!");setTimeout(reLoad(),1e3)}}catch(e){console.error("获取数据失败:",e);renderError(`加载失败：${e.message||"请刷新页面重试"}`)}}function reLoad(){let e=location.protocol+"//"+location.host+location.pathname;window.location.replace(e)}function initWaterfallLayout(e=false){const t=document.querySelector(".bb-timeline");if(!t)return;const o=t.querySelectorAll(".memo-item");if(o.length===0)return;const r=e?Array.from(o).filter(e=>e.style.opacity==="0"||e.style.opacity===""):Array.from(o);r.forEach(e=>{e.style.position="relative";e.style.width="100%";e.style.left="auto";e.style.top="auto";e.style.opacity="1"});t.style.height="auto"}function debounceWaterfall(){let e;return function(){clearTimeout(e);e=setTimeout(()=>{initWaterfallLayout(false)},150)}}const debouncedWaterfall=debounceWaterfall();window.addEventListener("resize",debouncedWaterfall);window.addEventListener("load",()=>{initWaterfallLayout();const t=new IntersectionObserver((e,o)=>{e.forEach(e=>{if(e.isIntersecting){const t=e.target;t.src=t.dataset.src;t.classList.remove("lazyload");o.unobserve(t)}})},{rootMargin:"100px 0px",threshold:.1});document.querySelectorAll("img.lazyload").forEach(e=>{t.observe(e)})});window.addEventListener("orientationchange",()=>{setTimeout(()=>{debouncedWaterfall()},300)});function waitForImagesAndLayout(e=false){const t=document.querySelector(".bb-timeline");if(!t)return;const o=e?t.querySelectorAll('.memo-item[style*="opacity: 0"], .memo-item:not([style])'):t.querySelectorAll(".memo-item");const r=[];o.forEach(e=>{const t=e.querySelectorAll("img");t.forEach(e=>r.push(e))});if(r.length===0){setTimeout(()=>{initWaterfallLayout(e);if(!e){window.addEventListener("resize",debouncedWaterfall)}},50);return}let a=0;const i=r.length;function n(){a++;if(a>=i){setTimeout(()=>{initWaterfallLayout(e);if(!e){window.addEventListener("resize",debouncedWaterfall)}},50)}}r.forEach(e=>{if(e.complete&&e.naturalHeight!==0){n()}else{e.addEventListener("load",n,{once:true});e.addEventListener("error",n,{once:true});setTimeout(()=>{if(!e.complete||e.naturalHeight===0){console.warn("图片加载超时，强制执行布局:",e.src);n()}},3e3)}});setTimeout(()=>{if(a<i){console.warn("部分图片加载超时，强制执行布局");initWaterfallLayout(e);if(!e){window.addEventListener("resize",debouncedWaterfall)}}},5e3)}
+      </div>`}const t=document.querySelector(".bb-timeline");let o=!!t;if(o){const a=document.createElement("div");a.innerHTML=g;const i=a.querySelectorAll(".memo-item");i.forEach(e=>{e.style.opacity="0";t.appendChild(e)});const n=document.querySelector("button.button-load");if(n){n.classList.remove("loading");n.textContent="加载更多";n.disabled=false;bindLoadMoreButton(AppState.apiV1)}}else{let e="<section class='bb-timeline'>";let t="</section>";r=e+g+t;let o=document.querySelector(".loader")||"";if(o)o.remove();AppState.bbDom.insertAdjacentHTML("beforeend",r);const n=document.querySelector("button.button-load");if(n){n.classList.remove("loading");n.textContent="加载更多";n.disabled=false;bindLoadMoreButton(AppState.apiV1)}}window.ViewImage&&ViewImage.init(".bb-cont img");window.Lately&&Lately.init({target:".datatime"});if(o){const i=document.querySelectorAll('.memo-item[style*="opacity: 0"]');i.forEach(e=>bindImageLoadEvents(e))}else{bindImageLoadEvents(document.querySelector(".bb-timeline"))}waitForImagesAndLayout(o)}function removeImagePlaceholder(e){e.style.backgroundImage="none";e.style.backgroundColor="transparent"}function bindImageLoadEvents(e){const t=e.querySelectorAll("img");let o=null;t.forEach(e=>{if(e.complete&&e.naturalHeight!==0){removeImagePlaceholder(e)}else{e.addEventListener("load",function(){removeImagePlaceholder(this);clearTimeout(o);o=setTimeout(()=>{initWaterfallLayout(false)},100)},{once:true});e.addEventListener("error",function(){removeImagePlaceholder(this);this.style.backgroundColor="#f0f0f0";this.style.backgroundImage="none";clearTimeout(o);o=setTimeout(()=>{initWaterfallLayout(false)},100)},{once:true})}})}function getTypeOfMemos(e){let t=`<div id="tag-list"></div>`;AppState.bbDom.insertAdjacentHTML("beforebegin",t);let o=e.innerHTML.replace("#","");let r=document.getElementById("tag-list");window.scrollTo({top:r.offsetTop-20,behavior:"smooth"});let a=`<span class='tag-span' onclick='reLoad()'>${e.innerHTML}</span>`;document.querySelector("#tag-list").innerHTML=a;let i=AppState.memos+"api/"+AppState.apiV1+"memos?creatorId="+bbMemo.creatorId+'&filter=tag in ["'+o+'"]&pageSize='+AppState.limit;AppState.tageFilter=o;AppState.mePage=1;fetchMemoDOM(i)}async function fetchMemoDOM(e){try{AppState.bbDom.innerHTML=loading;const t=await fetch(e);if(!t.ok){throw new Error(`HTTP error! status: ${t.status}`)}const o=await t.json();if(o){document.querySelector(bbMemo.domId).innerHTML="";const r=document.querySelector("button.button-load");updateHTMl(o);AppState.offset=o.nextPageToken;if(AppState.offset===""||!o.memos||o.memos.length===0){r.textContent="没有更多了";r.disabled=true;return}getNextList(AppState.apiV1)}else{alert("404 -_-!");setTimeout(reLoad(),1e3)}}catch(e){console.error("获取数据失败:",e);renderError(`加载失败：${e.message||"请刷新页面重试"}`)}}function reLoad(){let e=location.protocol+"//"+location.host+location.pathname;window.location.replace(e)}function initWaterfallLayout(e=false){const t=document.querySelector(".bb-timeline");if(!t)return;const o=t.querySelectorAll(".memo-item");if(o.length===0)return;const r=e?Array.from(o).filter(e=>e.style.opacity==="0"||e.style.opacity===""):Array.from(o);r.forEach(e=>{e.style.position="relative";e.style.width="100%";e.style.left="auto";e.style.top="auto";e.style.opacity="1"});t.style.height="auto"}function debounceWaterfall(){let e;return function(){clearTimeout(e);e=setTimeout(()=>{initWaterfallLayout(false)},150)}}const debouncedWaterfall=debounceWaterfall();window.addEventListener("resize",debouncedWaterfall);window.addEventListener("load",()=>{initWaterfallLayout();const t=new IntersectionObserver((e,o)=>{e.forEach(e=>{if(e.isIntersecting){const t=e.target;t.src=t.dataset.src;t.classList.remove("lazyload");o.unobserve(t)}})},{rootMargin:"100px 0px",threshold:.1});document.querySelectorAll("img.lazyload").forEach(e=>{t.observe(e)})});window.addEventListener("orientationchange",()=>{setTimeout(()=>{debouncedWaterfall()},300)});function waitForImagesAndLayout(e=false){const t=document.querySelector(".bb-timeline");if(!t)return;const o=e?t.querySelectorAll('.memo-item[style*="opacity: 0"], .memo-item:not([style])'):t.querySelectorAll(".memo-item");const r=[];o.forEach(e=>{const t=e.querySelectorAll("img");t.forEach(e=>r.push(e))});if(r.length===0){setTimeout(()=>{initWaterfallLayout(e);if(!e){window.addEventListener("resize",debouncedWaterfall)}},50);return}let a=0;const i=r.length;function n(){a++;if(a>=i){setTimeout(()=>{initWaterfallLayout(e);if(!e){window.addEventListener("resize",debouncedWaterfall)}},50)}}r.forEach(e=>{if(e.complete&&e.naturalHeight!==0){n()}else{e.addEventListener("load",n,{once:true});e.addEventListener("error",n,{once:true});setTimeout(()=>{if(!e.complete||e.naturalHeight===0){console.warn("图片加载超时，强制执行布局:",e.src);n()}},3e3)}});setTimeout(()=>{if(a<i){console.warn("部分图片加载超时，强制执行布局");initWaterfallLayout(e);if(!e){window.addEventListener("resize",debouncedWaterfall)}}},5e3)}
