@@ -311,6 +311,101 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
   height: 100%;
 }
 
+.github-repo-card {
+  display: block;
+  margin: 0.9rem 0 0.3rem;
+  padding: 0.9rem 1rem;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid rgba(120, 120, 120, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.github-repo-card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(120, 120, 120, 0.34);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.github-repo-card__header,
+.github-repo-card__top,
+.github-repo-card__owner,
+.github-repo-card__title,
+.github-repo-card__meta {
+  display: flex;
+}
+
+.github-repo-card__header,
+.github-repo-card__top {
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.github-repo-card__owner,
+.github-repo-card__title {
+  min-width: 0;
+  gap: 0.75rem;
+}
+
+.github-repo-card__title {
+  flex-direction: column;
+  gap: 0.24rem;
+}
+
+.github-repo-card__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.18rem 0.48rem;
+  border: 1px solid rgba(120, 120, 120, 0.22);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.github-repo-card__name,
+.github-repo-card__repo {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.github-repo-card__body,
+.github-repo-card__desc {
+  color: #666;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.github-repo-card__meta {
+  flex-wrap: wrap;
+  gap: 0.6rem 0.9rem;
+  margin-top: 0.7rem;
+  color: #777;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.github-repo-card__avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  flex: 0 0 38px;
+}
+
+.github-repo-card__arrow {
+  color: #777;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.github-repo-card.is-loading .github-repo-card__body,
+.github-repo-card.is-error .github-repo-card__desc {
+  color: #888;
+}
+
 /* 加载动画 */
 .loader {
   position: relative;
@@ -605,6 +700,25 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
   border-bottom-color: rgba(120, 120, 120, 0.16);
 }
 
+[data-user-color-scheme="light"] .github-repo-card {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(120, 120, 120, 0.2);
+}
+
+[data-user-color-scheme="light"] .github-repo-card:hover {
+  border-color: rgba(120, 120, 120, 0.34);
+}
+
+[data-user-color-scheme="light"] .github-repo-card__desc,
+[data-user-color-scheme="light"] .github-repo-card__body {
+  color: #666;
+}
+
+[data-user-color-scheme="light"] .github-repo-card__meta,
+[data-user-color-scheme="light"] .github-repo-card__arrow {
+  color: #777;
+}
+
 [data-user-color-scheme="light"] .bb-timeline .bb-item:hover {
   border-color: rgba(120, 120, 120, 0.34);
 }
@@ -633,6 +747,31 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
   border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 
+[data-user-color-scheme="dark"] .github-repo-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-user-color-scheme="dark"] .github-repo-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+[data-user-color-scheme="dark"] .github-repo-card__desc,
+[data-user-color-scheme="dark"] .github-repo-card__body {
+  color: var(--sec-text-color);
+}
+
+[data-user-color-scheme="dark"] .github-repo-card__meta,
+[data-user-color-scheme="dark"] .github-repo-card__arrow,
+[data-user-color-scheme="dark"] .github-repo-card__badge {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+[data-user-color-scheme="dark"] .github-repo-card__badge {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
 [data-user-color-scheme="dark"] .bb-timeline .bb-item {
   background: rgba(255, 255, 255, 0.015);
   border-color: rgba(255, 255, 255, 0.14);
@@ -655,6 +794,24 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
     align-items: flex-start;
   }
 
+  .github-repo-card {
+    padding: 0.82rem 0.88rem;
+  }
+
+  .github-repo-card__top {
+    align-items: flex-start;
+  }
+
+  .github-repo-card__owner {
+    align-items: flex-start;
+  }
+
+  .github-repo-card__avatar {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
   .bb-timeline .bb-item {
     padding: 0.9rem 0.95rem 0.8rem;
   }
@@ -669,22 +826,52 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
       </svg>
     </div>
   </div>
-`;function initLoaderAnimation(e=document){const l=e.querySelector(".loader:not([data-loader-ready])");if(!l){return}l.setAttribute("data-loader-ready","true");const s=l.querySelector(".loader-group");const c=l.querySelector(".loader-path");if(!s||!c){return}const d={particleCount:28,trailSpan:.31,durationMs:5300,rotationDurationMs:28e3,pulseDurationMs:4400,strokeWidth:4.2,roseA:9.2,roseABoost:.6,roseBreathBase:.72,roseBreathBoost:.28,roseScale:3.25};const t="http://www.w3.org/2000/svg";c.setAttribute("stroke-width",String(d.strokeWidth));const m=Array.from({length:d.particleCount},()=>{const e=document.createElementNS(t,"circle");e.setAttribute("class","loader-particle");s.appendChild(e);return e});const b=e=>(e%1+1)%1;const p=(e,t)=>{const o=e*Math.PI*2;const r=d.roseA+t*d.roseABoost;const a=r*(d.roseBreathBase+t*d.roseBreathBoost)*Math.cos(3*o);return{x:50+Math.cos(o)*a*d.roseScale,y:50+Math.sin(o)*a*d.roseScale}};const g=(r,a=240)=>Array.from({length:a+1},(e,t)=>{const o=p(t/a,r);return`${t===0?"M":"L"} ${o.x.toFixed(2)} ${o.y.toFixed(2)}`}).join(" ");const u=performance.now();const f=e=>{if(!l.isConnected){return}const t=e-u;const i=t%d.durationMs/d.durationMs;const o=t%d.pulseDurationMs/d.pulseDurationMs;const r=o*Math.PI*2;const n=.52+(Math.sin(r+.55)+1)/2*.48;const a=-(t%d.rotationDurationMs/d.rotationDurationMs)*360;s.setAttribute("transform",`rotate(${a} 50 50)`);c.setAttribute("d",g(n));m.forEach((e,t)=>{const o=t/Math.max(d.particleCount-1,1);const r=p(b(i-o*d.trailSpan),n);const a=Math.pow(1-o,.56);e.setAttribute("cx",r.x.toFixed(2));e.setAttribute("cy",r.y.toFixed(2));e.setAttribute("r",(.7+a*1.9).toFixed(2));e.setAttribute("opacity",(.05+a*.95).toFixed(3))});requestAnimationFrame(f)};requestAnimationFrame(f)}if(AppState.bbDom){Utils.safeExecute(()=>fetchStatus(),"初始化失败").catch(e=>{console.error("应用启动失败:",e);renderError(e.message||"加载失败，请刷新页面重试")})}async function fetchStatus(){if(!AppState.memos){throw new Error("请在 index.md 中配置 memos 地址")}const e=`${AppState.memos}api/v1/memos?pageSize=1`;const t=await fetch(e);if(!t.ok){throw new Error(`Memos API 探测失败，HTTP status: ${t.status}`)}const o=t.headers.get("content-type")||"";if(!o.includes("application/json")){throw new Error("Memos API 探测失败，返回的不是 JSON 数据")}AppState.apiV1="v1/";let r=Utils.getQueryVariable("memo")||"";if(r){getMemoOne(r)}else{newApiV1(AppState.apiV1)}}function getMemoOne(e){let t=`<iframe style="width:100%;height:100vh;" src="${e}" frameBorder="0"></iframe>`;let o=document.querySelector(".content")||document.querySelector(bbMemo.domId);o.innerHTML=t}function newApiV1(e){getFirstList(e);AppState.bbDom.innerHTML=loading;initLoaderAnimation(AppState.bbDom)}function buildMemosUrl({apiV1:e,pageToken:t="",tagName:o=""}={}){const r=new URLSearchParams({creatorId:bbMemo.creatorId,pageSize:String(AppState.limit)});if(t){r.set("pageToken",t)}if(o){r.set("filter",`tag in ["${o}"]`)}else{r.set("filter",`creator_id == ${bbMemo.creatorId}`)}return`${AppState.memos}api/${e}memos?${r.toString()}`}function bindLoadMoreButton(o){setTimeout(()=>{const e=document.querySelector("button.button-load");if(e&&!e.hasAttribute("data-bound")){e.setAttribute("data-bound","true");const t=function(e){e.preventDefault();e.stopPropagation();const t=e.target;t.textContent="";t.classList.add("loading");t.disabled=true;if(!AppState.nextDom||!Array.isArray(AppState.nextDom.memos)){t.classList.remove("loading");t.textContent="没有更多了";t.disabled=true;return}updateHTMl(AppState.nextDom);if(AppState.nextDom.memos.length===0||AppState.nextDom.memos.length<AppState.limit){t.classList.remove("loading");t.textContent="没有更多了";t.disabled=true}else{getNextList(o||AppState.apiV1)}};e.addEventListener("click",t);e._clickHandler=t}},100)}async function getFirstList(e){try{AppState.bbDom.insertAdjacentHTML("afterend",load);bindLoadMoreButton(e);const t=buildMemosUrl({apiV1:e});const o=await fetch(t);if(!o.ok){throw new Error(`HTTP error! status: ${o.status}`)}const r=await o.json();updateHTMl(r);AppState.offset=r.nextPageToken;if(AppState.offset===""||!r.memos||r.memos.length===0){const a=document.querySelector("button.button-load");a.textContent="没有更多了";a.disabled=true;return}getNextList(e)}catch(e){console.error("获取数据失败:",e);renderError(`加载失败：${e.message||"请刷新页面重试"}`)}}async function getNextList(e){try{if(AppState.isLoading)return;if(AppState.offset===""){const a=document.querySelector("button.button-load");a.textContent="没有更多了";a.disabled=true;return}AppState.isLoading=true;const t=buildMemosUrl({apiV1:e,pageToken:AppState.offset,tagName:AppState.tageFilter});const o=await fetch(t);if(!o.ok){throw new Error(`HTTP error! status: ${o.status}`)}const r=await o.json();AppState.nextDom=r;AppState.offset=r.nextPageToken}catch(e){console.error("预加载下一页失败:",e)}finally{AppState.isLoading=false}}function getCreatorUsername(e=""){return e.split("/").pop()||""}function getAuthorDisplayName(e){return bbMemo.authorName||getCreatorUsername(e.creator)||"Memos"}async function updateHTMl(e){if(!e||!e.memos){console.error("数据格式错误");return}let u="",r="";const f=/#([^#\s!.,;:?"'()]+)(?= )/g,h=/\!\[(.*?)\]\((.*?)\)/g,v=/\[(.*?)\]\((.*?)\)/g,x=/<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g,y=/<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g,w=/<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g,k=/<a.*?href="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g,A=/<a.*?href="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g,S=/<a.*?href="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\".*?>.*<\/a>/g;if(typeof marked==="undefined"){console.error("marked库未加载");return}marked.setOptions({breaks:false,smartypants:false,langPrefix:"language-",headerIds:false,mangle:false});const M=e.memos;for(let g=0;g<M.length;g++){let e=M[g].name;let t=AppState.memos+e;let o=getAuthorDisplayName(M[g]);let r=M[g].content+" ";let s="";s+=r.replace(f,"").replace(h,"").replace(v,'<a class="primary" href="$2" target="_blank">$1</a>');let a=r.match(f);let i="";if(a){i=a.map(e=>{return`<span class='tag-span' onclick='getTypeOfMemos(this)'>${e}</span> `}).join("");s=i+s.trim()}s=marked.parse(s).replace(x,"<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>").replace(y,"<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>").replace(w,"<meting-js auto='https://y.qq.com/n/yqq/song$1.html'></meting-js>").replace(k,"<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>").replace(A,"<div class='video-wrapper'><iframe src='https://player.youku.com/embed/$1' frameborder=0 'allowfullscreen'></iframe></div>").replace(S,"<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>");let n=M[g].content.match(h)||"",l="";if(n){let t=n.length,o="";if(t!==1){let e=" grid grid-"+t}n.forEach(e=>{let t=e.replace(/!\[.*?\]\((.*?)\)/g,"$1");o+=`<figure class="gallery-thumbnail"><img class="img thumbnail-image" loading="lazy" decoding="async" src="${t}"/></figure>`});s+=`<div class="resimg${l}">${o}</div>`}if(M[g].resources&&M[g].resources.length>0){let a=M[g].resources;let i="",n="",l=0;for(let r=0;r<a.length;r++){let e=a[r].type.slice(0,5);let t=a[r].externalLink;let o=t?t:AppState.memos+"file/"+(a[r].publicId||a[r].name)+"/"+a[r].filename+"?thumbnail=1";if(e=="image"){i+=`<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="${o}"/></figure>`;l=l+1}else if(e=="video"){i+=`<div class="video-wrapper"><video controls><source src="${o}" type="video/mp4"></video></div>`}else{n+=`<a target="_blank" rel="noreferrer" href="${o}">${a[r].name}</a>`}}if(i){let e="";e="grid grid-"+l;s+=`<div class="resimg ${e}">${i}</div>`}if(n){s+=`<p class="bb-source">${n}</p>`}}let c=AppState.memos.replace(/https\:\/\/(.*\.)?(.*)\..*/,"id-$2-");let d=`<emoji-reaction theme="system" class="reaction" endpoint="${AppState.emactionApi}" reacttargetid="${c+"memo-"+e}" style="line-height:normal;display:inline-flex;"></emoji-reaction>`;let m="";let b=M[g].displayTime||M[g].updateTime||M[g].createTime;let p=new Date(b).toLocaleString();u+=`<div data-id="memo-${e}" class="memo-item">
+`;function initLoaderAnimation(e=document){const s=e.querySelector(".loader:not([data-loader-ready])");if(!s){return}s.setAttribute("data-loader-ready","true");const l=s.querySelector(".loader-group");const c=s.querySelector(".loader-path");if(!l||!c){return}const d={particleCount:28,trailSpan:.31,durationMs:5300,rotationDurationMs:28e3,pulseDurationMs:4400,strokeWidth:4.2,roseA:9.2,roseABoost:.6,roseBreathBase:.72,roseBreathBoost:.28,roseScale:3.25};const t="http://www.w3.org/2000/svg";c.setAttribute("stroke-width",String(d.strokeWidth));const m=Array.from({length:d.particleCount},()=>{const e=document.createElementNS(t,"circle");e.setAttribute("class","loader-particle");l.appendChild(e);return e});const p=e=>(e%1+1)%1;const b=(e,t)=>{const o=e*Math.PI*2;const r=d.roseA+t*d.roseABoost;const a=r*(d.roseBreathBase+t*d.roseBreathBoost)*Math.cos(3*o);return{x:50+Math.cos(o)*a*d.roseScale,y:50+Math.sin(o)*a*d.roseScale}};const u=(r,a=240)=>Array.from({length:a+1},(e,t)=>{const o=b(t/a,r);return`${t===0?"M":"L"} ${o.x.toFixed(2)} ${o.y.toFixed(2)}`}).join(" ");const g=performance.now();const h=e=>{if(!s.isConnected){return}const t=e-g;const i=t%d.durationMs/d.durationMs;const o=t%d.pulseDurationMs/d.pulseDurationMs;const r=o*Math.PI*2;const n=.52+(Math.sin(r+.55)+1)/2*.48;const a=-(t%d.rotationDurationMs/d.rotationDurationMs)*360;l.setAttribute("transform",`rotate(${a} 50 50)`);c.setAttribute("d",u(n));m.forEach((e,t)=>{const o=t/Math.max(d.particleCount-1,1);const r=b(p(i-o*d.trailSpan),n);const a=Math.pow(1-o,.56);e.setAttribute("cx",r.x.toFixed(2));e.setAttribute("cy",r.y.toFixed(2));e.setAttribute("r",(.7+a*1.9).toFixed(2));e.setAttribute("opacity",(.05+a*.95).toFixed(3))});requestAnimationFrame(h)};requestAnimationFrame(h)}if(AppState.bbDom){Utils.safeExecute(()=>fetchStatus(),"初始化失败").catch(e=>{console.error("应用启动失败:",e);renderError(e.message||"加载失败，请刷新页面重试")})}async function fetchStatus(){if(!AppState.memos){throw new Error("请在 index.md 中配置 memos 地址")}const e=`${AppState.memos}api/v1/memos?pageSize=1`;const t=await fetch(e);if(!t.ok){throw new Error(`Memos API 探测失败，HTTP status: ${t.status}`)}const o=t.headers.get("content-type")||"";if(!o.includes("application/json")){throw new Error("Memos API 探测失败，返回的不是 JSON 数据")}AppState.apiV1="v1/";let r=Utils.getQueryVariable("memo")||"";if(r){getMemoOne(r)}else{newApiV1(AppState.apiV1)}}function getMemoOne(e){let t=`<iframe style="width:100%;height:100vh;" src="${e}" frameBorder="0"></iframe>`;let o=document.querySelector(".content")||document.querySelector(bbMemo.domId);o.innerHTML=t}function newApiV1(e){getFirstList(e);AppState.bbDom.innerHTML=loading;initLoaderAnimation(AppState.bbDom)}function buildMemosUrl({apiV1:e,pageToken:t="",tagName:o=""}={}){const r=new URLSearchParams({creatorId:bbMemo.creatorId,pageSize:String(AppState.limit)});if(t){r.set("pageToken",t)}if(o){r.set("filter",`tag in ["${o}"]`)}else{r.set("filter",`creator_id == ${bbMemo.creatorId}`)}return`${AppState.memos}api/${e}memos?${r.toString()}`}function bindLoadMoreButton(o){setTimeout(()=>{const e=document.querySelector("button.button-load");if(e&&!e.hasAttribute("data-bound")){e.setAttribute("data-bound","true");const t=function(e){e.preventDefault();e.stopPropagation();const t=e.target;t.textContent="";t.classList.add("loading");t.disabled=true;if(!AppState.nextDom||!Array.isArray(AppState.nextDom.memos)){t.classList.remove("loading");t.textContent="没有更多了";t.disabled=true;return}updateHTMl(AppState.nextDom);if(AppState.nextDom.memos.length===0||AppState.nextDom.memos.length<AppState.limit){t.classList.remove("loading");t.textContent="没有更多了";t.disabled=true}else{getNextList(o||AppState.apiV1)}};e.addEventListener("click",t);e._clickHandler=t}},100)}async function getFirstList(e){try{AppState.bbDom.insertAdjacentHTML("afterend",load);bindLoadMoreButton(e);const t=buildMemosUrl({apiV1:e});const o=await fetch(t);if(!o.ok){throw new Error(`HTTP error! status: ${o.status}`)}const r=await o.json();updateHTMl(r);AppState.offset=r.nextPageToken;if(AppState.offset===""||!r.memos||r.memos.length===0){const a=document.querySelector("button.button-load");a.textContent="没有更多了";a.disabled=true;return}getNextList(e)}catch(e){console.error("获取数据失败:",e);renderError(`加载失败：${e.message||"请刷新页面重试"}`)}}async function getNextList(e){try{if(AppState.isLoading)return;if(AppState.offset===""){const a=document.querySelector("button.button-load");a.textContent="没有更多了";a.disabled=true;return}AppState.isLoading=true;const t=buildMemosUrl({apiV1:e,pageToken:AppState.offset,tagName:AppState.tageFilter});const o=await fetch(t);if(!o.ok){throw new Error(`HTTP error! status: ${o.status}`)}const r=await o.json();AppState.nextDom=r;AppState.offset=r.nextPageToken}catch(e){console.error("预加载下一页失败:",e)}finally{AppState.isLoading=false}}function getCreatorUsername(e=""){return e.split("/").pop()||""}function getAuthorDisplayName(e){return bbMemo.authorName||getCreatorUsername(e.creator)||"Memos"}function escapeHtml(e=""){return String(e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;")}function normalizeGithubRepoPath(e=""){const t=e.split("/").filter(Boolean);if(t.length<2){return null}const o=t[0];const r=t[1].replace(/\.git$/i,"");return o&&r?`${o}/${r}`:null}function parseGithubRepoUrl(e=""){try{const t=new URL(e);const o=t.hostname.replace(/^www\./i,"").toLowerCase();if(o!=="github.com"){return null}const r=normalizeGithubRepoPath(t.pathname);if(!r){return null}const a=t.pathname.split("/").filter(Boolean);if(a.length>2&&!a[1].endsWith(".git")){return null}const[i,n]=r.split("/");return{owner:i,repo:n,fullName:r,url:`https://github.com/${r}`}}catch(e){return null}}function wrapGithubRepoLinks(e=""){const t=/(^|[\s>])https?:\/\/(?:www\.)?github\.com\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)(?:\.git)?(?=\/?(?:[?#)\]\s<]|$))/gi;return e.replace(t,(e,t,o,r)=>{const a=r.replace(/\.git$/i,"");const i=`https://github.com/${o}/${a}`;return`${t}[${o}/${a}](${i})`})}function createGithubRepoCardSkeleton(e,t){return`<a class="github-repo-card is-loading" href="${escapeHtml(t)}" target="_blank" rel="noreferrer" data-github-repo="${escapeHtml(e.fullName)}" data-github-url="${escapeHtml(t)}">
+    <div class="github-repo-card__header">
+      <span class="github-repo-card__badge">GitHub</span>
+      <span class="github-repo-card__name">${escapeHtml(e.fullName)}</span>
+    </div>
+    <div class="github-repo-card__body">正在加载仓库信息…</div>
+  </a>`}function renderGithubRepoCard(e,t,o){const r=e.full_name||o;const a=e.description?escapeHtml(e.description):"没有简介";const i=e.language?escapeHtml(e.language):"Unknown";const n=Number(e.stargazers_count||0).toLocaleString();const s=Number(e.forks_count||0).toLocaleString();const l=e.updated_at?new Date(e.updated_at).toLocaleDateString():"";const c=e.owner&&e.owner.avatar_url?e.owner.avatar_url:"";const d=e.owner&&e.owner.login?e.owner.login:r;return`<div class="github-repo-card__top">
+      <div class="github-repo-card__owner">
+        ${c?`<img class="github-repo-card__avatar" src="${escapeHtml(c)}" alt="${escapeHtml(d)}" loading="lazy" decoding="async">`:""}
+        <div class="github-repo-card__title">
+          <span class="github-repo-card__repo">${escapeHtml(r)}</span>
+          <span class="github-repo-card__desc">${a}</span>
+        </div>
+      </div>
+      <span class="github-repo-card__arrow" aria-hidden="true">↗</span>
+    </div>
+    <div class="github-repo-card__meta">
+      <span>★ ${n}</span>
+      <span>⑂ ${s}</span>
+      <span>${i}</span>
+      ${l?`<span>更新于 ${escapeHtml(l)}</span>`:""}
+    </div>`}const githubRepoCache=new Map;async function fetchGithubRepoMeta(e,t){const o=`${e}/${t}`;if(githubRepoCache.has(o)){return githubRepoCache.get(o)}const r=fetch(`https://api.github.com/repos/${e}/${t}`,{headers:{Accept:"application/vnd.github+json"}}).then(async e=>{if(!e.ok){throw new Error(`GitHub API 请求失败: ${e.status}`)}return e.json()}).catch(e=>{githubRepoCache.delete(o);throw e});githubRepoCache.set(o,r);return r}async function hydrateGithubRepoCards(e=document){const t=e.querySelectorAll?.("[data-github-repo]")||[];if(!t.length){return}await Promise.all(Array.from(t).map(async t=>{const o=t.dataset.githubRepo;const e=t.dataset.githubUrl||t.href;if(!o){return}const[r,a]=o.split("/");if(!r||!a){return}try{const i=await fetchGithubRepoMeta(r,a);t.classList.remove("is-loading","is-error");t.innerHTML=renderGithubRepoCard(i,e,o);t.href=i.html_url||e;t.setAttribute("aria-label",`GitHub 仓库 ${o}`)}catch(e){console.warn(`加载 GitHub 仓库失败: ${o}`,e);t.classList.add("is-error");t.innerHTML=`<div class="github-repo-card__top">
+          <div class="github-repo-card__title">
+            <span class="github-repo-card__repo">${escapeHtml(o)}</span>
+            <span class="github-repo-card__desc">GitHub 信息加载失败，点击可直接访问仓库</span>
+          </div>
+          <span class="github-repo-card__arrow" aria-hidden="true">↗</span>
+        </div>
+        <div class="github-repo-card__meta">
+          <span>${escapeHtml(o)}</span>
+        </div>`}}))}async function updateHTMl(e){if(!e||!e.memos){console.error("数据格式错误");return}let g="",r="";const h=/#([^#\s!.,;:?"'()]+)(?= )/g,f=/\!\[(.*?)\]\((.*?)\)/g,v=/\[(.*?)\]\((.*?)\)/g,x=/<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g,w=/<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g,y=/<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g,_=/<a.*?href="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g,k=/<a.*?href="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g,A=/<a.*?href="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\".*?>.*<\/a>/g;if(typeof marked==="undefined"){console.error("marked库未加载");return}marked.setOptions({breaks:false,smartypants:false,langPrefix:"language-",headerIds:false,mangle:false});const S=e.memos;for(let u=0;u<S.length;u++){let e=S[u].name;let t=AppState.memos+e;let o=getAuthorDisplayName(S[u]);let r=S[u].content+" ";let l="";l+=wrapGithubRepoLinks(r).replace(h,"").replace(f,"").replace(v,'<a class="primary" href="$2" target="_blank">$1</a>');let a=r.match(h);let i="";if(a){i=a.map(e=>{return`<span class='tag-span' onclick='getTypeOfMemos(this)'>${e}</span> `}).join("");l=i+l.trim()}l=marked.parse(l).replace(x,"<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>").replace(w,"<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>").replace(y,"<meting-js auto='https://y.qq.com/n/yqq/song$1.html'></meting-js>").replace(_,"<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>").replace(k,"<div class='video-wrapper'><iframe src='https://player.youku.com/embed/$1' frameborder=0 'allowfullscreen'></iframe></div>").replace(A,"<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>").replace(/<a([^>]*?)href="(https?:\/\/(?:www\.)?github\.com\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)(?:\.git)?\/?)"([^>]*)>(.*?)<\/a>/gi,(e,t,o)=>{const r=parseGithubRepoUrl(o);if(!r){return e}return createGithubRepoCardSkeleton(r,r.url)});let n=S[u].content.match(f)||"",s="";if(n){let t=n.length,o="";if(t!==1){let e=" grid grid-"+t}n.forEach(e=>{let t=e.replace(/!\[.*?\]\((.*?)\)/g,"$1");o+=`<figure class="gallery-thumbnail"><img class="img thumbnail-image" loading="lazy" decoding="async" src="${t}"/></figure>`});l+=`<div class="resimg${s}">${o}</div>`}if(S[u].resources&&S[u].resources.length>0){let a=S[u].resources;let i="",n="",s=0;for(let r=0;r<a.length;r++){let e=a[r].type.slice(0,5);let t=a[r].externalLink;let o=t?t:AppState.memos+"file/"+(a[r].publicId||a[r].name)+"/"+a[r].filename+"?thumbnail=1";if(e=="image"){i+=`<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="${o}"/></figure>`;s=s+1}else if(e=="video"){i+=`<div class="video-wrapper"><video controls><source src="${o}" type="video/mp4"></video></div>`}else{n+=`<a target="_blank" rel="noreferrer" href="${o}">${a[r].name}</a>`}}if(i){let e="";e="grid grid-"+s;l+=`<div class="resimg ${e}">${i}</div>`}if(n){l+=`<p class="bb-source">${n}</p>`}}let c=AppState.memos.replace(/https\:\/\/(.*\.)?(.*)\..*/,"id-$2-");let d=`<emoji-reaction theme="system" class="reaction" endpoint="${AppState.emactionApi}" reacttargetid="${c+"memo-"+e}" style="line-height:normal;display:inline-flex;"></emoji-reaction>`;let m="";let p=S[u].displayTime||S[u].updateTime||S[u].createTime;let b=new Date(p).toLocaleString();g+=`<div data-id="memo-${e}" class="memo-item">
         <div class="bb-item">
           <div class="memo-head">
             <div class="memo-meta">
               <span class="memo-name">${o}</span>
               <a class="memo-time-link" href="${t}" target="_blank" rel="noreferrer">
-                <time class="datatime" datetime="${b}">${p}</time>
+                <time class="datatime" datetime="${p}">${b}</time>
               </a>
             </div>
           </div>
           <div class="bb-cont">
-            ${s}
+            ${l}
           </div>
           <div class="memo-foot bb-tool">${d}</div>
           <div class="bb-info">
             ${m}
           </div>
         </div>
-      </div>`}const t=document.querySelector(".bb-timeline");let o=!!t;if(o){const i=document.createElement("div");i.innerHTML=u;const n=i.querySelectorAll(".memo-item");n.forEach(e=>{t.appendChild(e)});const l=document.querySelector("button.button-load");if(l){l.classList.remove("loading");l.textContent="加载更多";l.disabled=false;bindLoadMoreButton(AppState.apiV1)}}else{let e="<section class='bb-timeline'>";let t="</section>";r=e+u+t;let o=document.querySelector(".loader")||"";if(o)o.remove();AppState.bbDom.insertAdjacentHTML("beforeend",r);const l=document.querySelector("button.button-load");if(l){l.classList.remove("loading");l.textContent="加载更多";l.disabled=false;bindLoadMoreButton(AppState.apiV1)}}window.ViewImage&&ViewImage.init(".bb-cont img");window.Lately&&Lately.init({target:".datatime"});const a=document.querySelector(".bb-timeline");if(a){bindImageLoadEvents(a)}}function removeImagePlaceholder(e){e.style.backgroundImage="none";e.style.backgroundColor="transparent"}function bindImageLoadEvents(e){const t=e.querySelectorAll("img");t.forEach(e=>{if(e.complete&&e.naturalHeight!==0){removeImagePlaceholder(e)}else{e.addEventListener("load",function(){removeImagePlaceholder(this)},{once:true});e.addEventListener("error",function(){removeImagePlaceholder(this);this.style.backgroundColor="#f0f0f0";this.style.backgroundImage="none"},{once:true})}})}function getTypeOfMemos(e){let t=`<div id="tag-list"></div>`;AppState.bbDom.insertAdjacentHTML("beforebegin",t);let o=e.innerHTML.replace("#","");let r=document.getElementById("tag-list");window.scrollTo({top:r.offsetTop-20,behavior:"smooth"});let a=`<span class='tag-span' onclick='reLoad()'>${e.innerHTML}</span>`;document.querySelector("#tag-list").innerHTML=a;AppState.tageFilter=o;fetchMemoDOM(buildMemosUrl({apiV1:AppState.apiV1,tagName:o}))}async function fetchMemoDOM(e){try{AppState.bbDom.innerHTML=loading;initLoaderAnimation(AppState.bbDom);const t=await fetch(e);if(!t.ok){throw new Error(`HTTP error! status: ${t.status}`)}const o=await t.json();if(o){document.querySelector(bbMemo.domId).innerHTML="";const r=document.querySelector("button.button-load");updateHTMl(o);AppState.offset=o.nextPageToken;if(AppState.offset===""||!o.memos||o.memos.length===0){r.textContent="没有更多了";r.disabled=true;return}getNextList(AppState.apiV1)}else{alert("404 -_-!");setTimeout(reLoad(),1e3)}}catch(e){console.error("获取数据失败:",e);renderError(`加载失败：${e.message||"请刷新页面重试"}`)}}function reLoad(){let e=location.protocol+"//"+location.host+location.pathname;window.location.replace(e)}window.addEventListener("load",()=>{const t=new IntersectionObserver((e,o)=>{e.forEach(e=>{if(e.isIntersecting){const t=e.target;t.src=t.dataset.src;t.classList.remove("lazyload");o.unobserve(t)}})},{rootMargin:"100px 0px",threshold:.1});document.querySelectorAll("img.lazyload").forEach(e=>{t.observe(e)})});
+      </div>`}const t=document.querySelector(".bb-timeline");let o=!!t;if(o){const i=document.createElement("div");i.innerHTML=g;const n=i.querySelectorAll(".memo-item");n.forEach(e=>{t.appendChild(e)});hydrateGithubRepoCards(t);const s=document.querySelector("button.button-load");if(s){s.classList.remove("loading");s.textContent="加载更多";s.disabled=false;bindLoadMoreButton(AppState.apiV1)}}else{let e="<section class='bb-timeline'>";let t="</section>";r=e+g+t;let o=document.querySelector(".loader")||"";if(o)o.remove();AppState.bbDom.insertAdjacentHTML("beforeend",r);hydrateGithubRepoCards(AppState.bbDom);const s=document.querySelector("button.button-load");if(s){s.classList.remove("loading");s.textContent="加载更多";s.disabled=false;bindLoadMoreButton(AppState.apiV1)}}window.ViewImage&&ViewImage.init(".bb-cont img");window.Lately&&Lately.init({target:".datatime"});const a=document.querySelector(".bb-timeline");if(a){bindImageLoadEvents(a)}}function removeImagePlaceholder(e){e.style.backgroundImage="none";e.style.backgroundColor="transparent"}function bindImageLoadEvents(e){const t=e.querySelectorAll("img");t.forEach(e=>{if(e.complete&&e.naturalHeight!==0){removeImagePlaceholder(e)}else{e.addEventListener("load",function(){removeImagePlaceholder(this)},{once:true});e.addEventListener("error",function(){removeImagePlaceholder(this);this.style.backgroundColor="#f0f0f0";this.style.backgroundImage="none"},{once:true})}})}function getTypeOfMemos(e){let t=`<div id="tag-list"></div>`;AppState.bbDom.insertAdjacentHTML("beforebegin",t);let o=e.innerHTML.replace("#","");let r=document.getElementById("tag-list");window.scrollTo({top:r.offsetTop-20,behavior:"smooth"});let a=`<span class='tag-span' onclick='reLoad()'>${e.innerHTML}</span>`;document.querySelector("#tag-list").innerHTML=a;AppState.tageFilter=o;fetchMemoDOM(buildMemosUrl({apiV1:AppState.apiV1,tagName:o}))}async function fetchMemoDOM(e){try{AppState.bbDom.innerHTML=loading;initLoaderAnimation(AppState.bbDom);const t=await fetch(e);if(!t.ok){throw new Error(`HTTP error! status: ${t.status}`)}const o=await t.json();if(o){document.querySelector(bbMemo.domId).innerHTML="";const r=document.querySelector("button.button-load");updateHTMl(o);AppState.offset=o.nextPageToken;if(AppState.offset===""||!o.memos||o.memos.length===0){r.textContent="没有更多了";r.disabled=true;return}getNextList(AppState.apiV1)}else{alert("404 -_-!");setTimeout(reLoad(),1e3)}}catch(e){console.error("获取数据失败:",e);renderError(`加载失败：${e.message||"请刷新页面重试"}`)}}function reLoad(){let e=location.protocol+"//"+location.host+location.pathname;window.location.replace(e)}window.addEventListener("load",()=>{const t=new IntersectionObserver((e,o)=>{e.forEach(e=>{if(e.isIntersecting){const t=e.target;t.src=t.dataset.src;t.classList.remove("lazyload");o.unobserve(t)}})},{rootMargin:"100px 0px",threshold:.1});document.querySelectorAll("img.lazyload").forEach(e=>{t.observe(e)})});
