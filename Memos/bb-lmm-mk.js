@@ -446,7 +446,7 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
 /* 列表长卡片布局覆盖 */
 .memos-hero {
   max-width: 760px;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 2rem;
 }
 
 .memos-hero h1 {
@@ -459,7 +459,7 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
 }
 
 .memos-hero p {
-  margin: 0.9rem 0 0;
+  margin: 0;
   color: #666;
   font-size: 1rem;
   line-height: 1.7;
