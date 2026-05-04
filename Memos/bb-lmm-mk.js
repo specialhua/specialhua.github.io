@@ -314,8 +314,10 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
 .github-repo-card {
   display: block;
   margin: 0.9rem 0 0.3rem;
-  width: min(100%, 540px);
-  padding: 0.72rem 0.82rem;
+  width: min(100%, 460px);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.82rem 0.95rem;
   color: inherit;
   text-decoration: none;
   border: 1px solid rgba(120, 120, 120, 0.2);
@@ -339,7 +341,7 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
 
 .github-repo-card__header,
 .github-repo-card__top {
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 0.8rem;
 }
@@ -347,7 +349,7 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
 .github-repo-card__owner,
 .github-repo-card__title {
   min-width: 0;
-  gap: 0.75rem;
+  gap: 0.82rem;
 }
 
 .github-repo-card__owner {
@@ -365,40 +367,53 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
   justify-content: center;
   padding: 0.12rem 0.4rem;
   border: 1px solid rgba(120, 120, 120, 0.22);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .github-repo-card__name,
 .github-repo-card__repo {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.02em;
+  line-height: 1.35;
 }
 
 .github-repo-card__mark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 18px;
-  width: 18px;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border: 1px solid rgba(120, 120, 120, 0.16);
+  background: rgba(120, 120, 120, 0.06);
   color: #666;
   line-height: 1;
-  transform: translateY(1px);
+  transform: none;
 }
 
 .github-repo-card__mark-icon {
   display: block;
-  width: 13px;
-  height: 13px;
+  width: 18px;
+  height: 18px;
 }
 
 .github-repo-card__body,
 .github-repo-card__desc {
   color: #666;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.65;
+}
+
+.github-repo-card__desc {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .github-repo-card__meta {
@@ -406,13 +421,15 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
   gap: 0.42rem 0.75rem;
   margin-top: 0.55rem;
   color: #777;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.04em;
 }
 
 .github-repo-card__arrow {
   color: #777;
-  font-size: 12px;
+  align-self: flex-start;
+  margin-top: 0.05rem;
+  font-size: 16px;
   line-height: 1;
 }
 
@@ -724,6 +741,11 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
   border-color: rgba(120, 120, 120, 0.34);
 }
 
+[data-user-color-scheme="light"] .github-repo-card__mark {
+  background: rgba(120, 120, 120, 0.05);
+  border-color: rgba(120, 120, 120, 0.16);
+}
+
 [data-user-color-scheme="light"] .github-repo-card__desc,
 [data-user-color-scheme="light"] .github-repo-card__body {
   color: #666;
@@ -773,6 +795,11 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
   background: rgba(255, 255, 255, 0.035);
 }
 
+[data-user-color-scheme="dark"] .github-repo-card__mark {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
 [data-user-color-scheme="dark"] .github-repo-card__desc,
 [data-user-color-scheme="dark"] .github-repo-card__body {
   color: var(--sec-text-color);
@@ -813,7 +840,7 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
 
   .github-repo-card {
     width: 100%;
-    padding: 0.7rem 0.8rem;
+    padding: 0.76rem 0.84rem;
   }
 
   .github-repo-card__top {
@@ -825,13 +852,15 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
   }
 
   .github-repo-card__mark {
-    flex-basis: 18px;
-    width: 18px;
+    flex-basis: 30px;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
   }
 
   .github-repo-card__mark-icon {
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
   }
 
   .bb-timeline .bb-item {
@@ -878,7 +907,7 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
         </span>
         <span class="github-repo-card__meta">
           <span>${escapeHtml(o)}</span>
-        </span>`}}))}async function updateHTMl(e){if(!e||!e.memos){console.error("数据格式错误");return}let g="",r="";const h=/#([^#\s!.,;:?"'()]+)(?= )/g,f=/\!\[(.*?)\]\((.*?)\)/g,v=/\[(.*?)\]\((.*?)\)/g,x=/<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g,w=/<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g,y=/<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g,_=/<a.*?href="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g,k=/<a.*?href="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g,A=/<a.*?href="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\".*?>.*<\/a>/g;if(typeof marked==="undefined"){console.error("marked库未加载");return}marked.setOptions({breaks:false,smartypants:false,langPrefix:"language-",headerIds:false,mangle:false});const S=e.memos;for(let u=0;u<S.length;u++){let e=S[u].name;let t=AppState.memos+e;let o=getAuthorDisplayName(S[u]);let r=S[u].content+" ";let l="";l+=wrapGithubRepoLinks(r).replace(h,"").replace(f,"").replace(v,'<a class="primary" href="$2" target="_blank">$1</a>');let a=r.match(h);let i="";if(a){i=a.map(e=>{return`<span class='tag-span' onclick='getTypeOfMemos(this)'>${e}</span> `}).join("");l=i+l.trim()}l=marked.parse(l).replace(x,"<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>").replace(w,"<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>").replace(y,"<meting-js auto='https://y.qq.com/n/yqq/song$1.html'></meting-js>").replace(_,"<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>").replace(k,"<div class='video-wrapper'><iframe src='https://player.youku.com/embed/$1' frameborder=0 'allowfullscreen'></iframe></div>").replace(A,"<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>").replace(/<a([^>]*?)href="(https?:\/\/(?:www\.)?github\.com\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)(?:\.git)?\/?)"([^>]*)>(.*?)<\/a>/gi,(e,t,o)=>{const r=parseGithubRepoUrl(o);if(!r){return e}return createGithubRepoCardSkeleton(r,r.url)});let n=S[u].content.match(f)||"",s="";if(n){let t=n.length,o="";if(t!==1){let e=" grid grid-"+t}n.forEach(e=>{let t=e.replace(/!\[.*?\]\((.*?)\)/g,"$1");o+=`<figure class="gallery-thumbnail"><img class="img thumbnail-image" loading="lazy" decoding="async" src="${t}"/></figure>`});l+=`<div class="resimg${s}">${o}</div>`}if(S[u].resources&&S[u].resources.length>0){let a=S[u].resources;let i="",n="",s=0;for(let r=0;r<a.length;r++){let e=a[r].type.slice(0,5);let t=a[r].externalLink;let o=t?t:AppState.memos+"file/"+(a[r].publicId||a[r].name)+"/"+a[r].filename+"?thumbnail=1";if(e=="image"){i+=`<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="${o}"/></figure>`;s=s+1}else if(e=="video"){i+=`<div class="video-wrapper"><video controls><source src="${o}" type="video/mp4"></video></div>`}else{n+=`<a target="_blank" rel="noreferrer" href="${o}">${a[r].name}</a>`}}if(i){let e="";e="grid grid-"+s;l+=`<div class="resimg ${e}">${i}</div>`}if(n){l+=`<p class="bb-source">${n}</p>`}}let c=AppState.memos.replace(/https\:\/\/(.*\.)?(.*)\..*/,"id-$2-");let d=`<emoji-reaction theme="system" class="reaction" endpoint="${AppState.emactionApi}" reacttargetid="${c+"memo-"+e}" style="line-height:normal;display:inline-flex;"></emoji-reaction>`;let m="";let p=S[u].displayTime||S[u].updateTime||S[u].createTime;let b=new Date(p).toLocaleString();g+=`<div data-id="memo-${e}" class="memo-item">
+        </span>`}}))}async function updateHTMl(e){if(!e||!e.memos){console.error("数据格式错误");return}let g="",r="";const h=/#([^#\s!.,;:?"'()]+)(?= )/g,f=/\!\[(.*?)\]\((.*?)\)/g,x=/\[(.*?)\]\((.*?)\)/g,v=/<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g,w=/<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g,_=/<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g,y=/<a.*?href="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g,k=/<a.*?href="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g,A=/<a.*?href="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\".*?>.*<\/a>/g;if(typeof marked==="undefined"){console.error("marked库未加载");return}marked.setOptions({breaks:false,smartypants:false,langPrefix:"language-",headerIds:false,mangle:false});const S=e.memos;for(let u=0;u<S.length;u++){let e=S[u].name;let t=AppState.memos+e;let o=getAuthorDisplayName(S[u]);let r=S[u].content+" ";let l="";l+=wrapGithubRepoLinks(r).replace(h,"").replace(f,"").replace(x,'<a class="primary" href="$2" target="_blank">$1</a>');let a=r.match(h);let i="";if(a){i=a.map(e=>{return`<span class='tag-span' onclick='getTypeOfMemos(this)'>${e}</span> `}).join("");l=i+l.trim()}l=marked.parse(l).replace(v,"<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>").replace(w,"<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>").replace(_,"<meting-js auto='https://y.qq.com/n/yqq/song$1.html'></meting-js>").replace(y,"<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>").replace(k,"<div class='video-wrapper'><iframe src='https://player.youku.com/embed/$1' frameborder=0 'allowfullscreen'></iframe></div>").replace(A,"<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>").replace(/<a([^>]*?)href="(https?:\/\/(?:www\.)?github\.com\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)(?:\.git)?\/?)"([^>]*)>(.*?)<\/a>/gi,(e,t,o)=>{const r=parseGithubRepoUrl(o);if(!r){return e}return createGithubRepoCardSkeleton(r,r.url)});let n=S[u].content.match(f)||"",s="";if(n){let t=n.length,o="";if(t!==1){let e=" grid grid-"+t}n.forEach(e=>{let t=e.replace(/!\[.*?\]\((.*?)\)/g,"$1");o+=`<figure class="gallery-thumbnail"><img class="img thumbnail-image" loading="lazy" decoding="async" src="${t}"/></figure>`});l+=`<div class="resimg${s}">${o}</div>`}if(S[u].resources&&S[u].resources.length>0){let a=S[u].resources;let i="",n="",s=0;for(let r=0;r<a.length;r++){let e=a[r].type.slice(0,5);let t=a[r].externalLink;let o=t?t:AppState.memos+"file/"+(a[r].publicId||a[r].name)+"/"+a[r].filename+"?thumbnail=1";if(e=="image"){i+=`<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="${o}"/></figure>`;s=s+1}else if(e=="video"){i+=`<div class="video-wrapper"><video controls><source src="${o}" type="video/mp4"></video></div>`}else{n+=`<a target="_blank" rel="noreferrer" href="${o}">${a[r].name}</a>`}}if(i){let e="";e="grid grid-"+s;l+=`<div class="resimg ${e}">${i}</div>`}if(n){l+=`<p class="bb-source">${n}</p>`}}let c=AppState.memos.replace(/https\:\/\/(.*\.)?(.*)\..*/,"id-$2-");let d=`<emoji-reaction theme="system" class="reaction" endpoint="${AppState.emactionApi}" reacttargetid="${c+"memo-"+e}" style="line-height:normal;display:inline-flex;"></emoji-reaction>`;let m="";let p=S[u].displayTime||S[u].updateTime||S[u].createTime;let b=new Date(p).toLocaleString();g+=`<div data-id="memo-${e}" class="memo-item">
         <div class="bb-item">
           <div class="memo-head">
             <div class="memo-meta">
