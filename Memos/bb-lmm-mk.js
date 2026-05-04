@@ -314,7 +314,8 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
 .github-repo-card {
   display: block;
   margin: 0.9rem 0 0.3rem;
-  padding: 0.9rem 1rem;
+  width: min(100%, 540px);
+  padding: 0.72rem 0.82rem;
   color: inherit;
   text-decoration: none;
   border: 1px solid rgba(120, 120, 120, 0.2);
@@ -350,61 +351,68 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
 }
 
 .github-repo-card__owner {
-  align-items: center;
+  align-items: flex-start;
 }
 
 .github-repo-card__title {
   flex-direction: column;
-  gap: 0.24rem;
+  gap: 0.2rem;
 }
 
 .github-repo-card__badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.18rem 0.48rem;
+  padding: 0.12rem 0.4rem;
   border: 1px solid rgba(120, 120, 120, 0.22);
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .github-repo-card__name,
 .github-repo-card__repo {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.02em;
+}
+
+.github-repo-card__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 18px;
+  width: 18px;
+  color: #666;
+  line-height: 1;
+  transform: translateY(1px);
+}
+
+.github-repo-card__mark-icon {
+  display: block;
+  width: 13px;
+  height: 13px;
 }
 
 .github-repo-card__body,
 .github-repo-card__desc {
   color: #666;
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: 12px;
+  line-height: 1.65;
 }
 
 .github-repo-card__meta {
   flex-wrap: wrap;
-  gap: 0.6rem 0.9rem;
-  margin-top: 0.7rem;
+  gap: 0.42rem 0.75rem;
+  margin-top: 0.55rem;
   color: #777;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.04em;
-}
-
-.github-repo-card__avatar {
-  display: block;
-  width: 38px;
-  min-width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  flex: 0 0 38px;
-  object-fit: cover;
 }
 
 .github-repo-card__arrow {
   color: #777;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1;
 }
 
@@ -722,7 +730,8 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
 }
 
 [data-user-color-scheme="light"] .github-repo-card__meta,
-[data-user-color-scheme="light"] .github-repo-card__arrow {
+[data-user-color-scheme="light"] .github-repo-card__arrow,
+[data-user-color-scheme="light"] .github-repo-card__mark {
   color: #777;
 }
 
@@ -771,7 +780,8 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
 
 [data-user-color-scheme="dark"] .github-repo-card__meta,
 [data-user-color-scheme="dark"] .github-repo-card__arrow,
-[data-user-color-scheme="dark"] .github-repo-card__badge {
+[data-user-color-scheme="dark"] .github-repo-card__badge,
+[data-user-color-scheme="dark"] .github-repo-card__mark {
   color: rgba(255, 255, 255, 0.72);
 }
 
@@ -802,7 +812,8 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
   }
 
   .github-repo-card {
-    padding: 0.82rem 0.88rem;
+    width: 100%;
+    padding: 0.7rem 0.8rem;
   }
 
   .github-repo-card__top {
@@ -813,10 +824,14 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
     align-items: flex-start;
   }
 
-  .github-repo-card__avatar {
-    width: 34px;
-    height: 34px;
-    flex-basis: 34px;
+  .github-repo-card__mark {
+    flex-basis: 18px;
+    width: 18px;
+  }
+
+  .github-repo-card__mark-icon {
+    width: 12px;
+    height: 12px;
   }
 
   .bb-timeline .bb-item {
@@ -839,9 +854,9 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
       <span class="github-repo-card__name">${escapeHtml(e.fullName)}</span>
     </span>
     <span class="github-repo-card__body">正在加载仓库信息…</span>
-  </a>`}function renderGithubRepoCard(e,t,o){const r=e.full_name||o;const a=e.description?escapeHtml(e.description):"没有简介";const i=e.language?escapeHtml(e.language):"Unknown";const n=Number(e.stargazers_count||0).toLocaleString();const s=Number(e.forks_count||0).toLocaleString();const l=e.updated_at?new Date(e.updated_at).toLocaleDateString():"";const c=e.owner&&e.owner.avatar_url?e.owner.avatar_url:"";const d=e.owner&&e.owner.login?e.owner.login:r;return`<span class="github-repo-card__top">
+  </a>`}const GITHUB_BRANCH_ICON=`<svg class="github-repo-card__mark-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38c-.4.4-.86.61-1.38.63c-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72c0 1.11.89 2 2 2c1.11 0 2-.89 2-2c0-.53-.2-1-.53-1.36c.09-.06.48-.41.59-.47c.25-.11.56-.17.94-.17c1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2c0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2c0-.65.55-1.2 1.2-1.2c.65 0 1.2.55 1.2 1.2c0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2c0-.65.55-1.2 1.2-1.2c.65 0 1.2.55 1.2 1.2c0 .65-.55 1.2-1.2 1.2z"/></svg>`;function renderGithubRepoCard(e,t,o){const r=e.full_name||o;const a=e.description?escapeHtml(e.description):"没有简介";const i=e.language?escapeHtml(e.language):"Unknown";const n=Number(e.stargazers_count||0).toLocaleString();const s=Number(e.forks_count||0).toLocaleString();const l=e.updated_at?new Date(e.updated_at).toLocaleDateString():"";return`<span class="github-repo-card__top">
       <span class="github-repo-card__owner">
-        ${c?`<img class="github-repo-card__avatar" src="${escapeHtml(c)}" alt="${escapeHtml(d)}" loading="lazy" decoding="async">`:""}
+        <span class="github-repo-card__mark" aria-hidden="true">${GITHUB_BRANCH_ICON}</span>
         <span class="github-repo-card__title">
           <span class="github-repo-card__repo">${escapeHtml(r)}</span>
           <span class="github-repo-card__desc">${a}</span>
