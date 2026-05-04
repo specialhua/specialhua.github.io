@@ -369,13 +369,6 @@
   </url>
   
   <url>
-    <loc>https://inkcodes.com/tags/web/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://inkcodes.com/tags/python/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -391,13 +384,6 @@
   
   <url>
     <loc>https://inkcodes.com/tags/%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://inkcodes.com/tags/%E6%80%9D%E8%80%83/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -426,6 +412,41 @@
   
   <url>
     <loc>https://inkcodes.com/tags/%E7%BC%98%E8%B5%B7%E6%80%A7%E7%A9%BA/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://inkcodes.com/tags/web/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://inkcodes.com/tags/%E6%80%9D%E8%80%83/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://inkcodes.com/tags/qexo/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://inkcodes.com/tags/error/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://inkcodes.com/tags/hexo/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -466,27 +487,6 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://inkcodes.com/tags/hexo/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://inkcodes.com/tags/qexo/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://inkcodes.com/tags/error/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
@@ -518,13 +518,6 @@
   </url>
   
   <url>
-    <loc>https://inkcodes.com/categories/%E6%8A%80%E6%9C%AF/%E6%8A%98%E8%85%BE/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://inkcodes.com/categories/%E4%B9%90%E8%B6%A3/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -532,7 +525,7 @@
   </url>
   
   <url>
-    <loc>https://inkcodes.com/categories/%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://inkcodes.com/categories/%E6%8A%80%E6%9C%AF/%E6%8A%98%E8%85%BE/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -540,6 +533,13 @@
   
   <url>
     <loc>https://inkcodes.com/categories/%E6%8A%80%E6%9C%AF/%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://inkcodes.com/categories/%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
