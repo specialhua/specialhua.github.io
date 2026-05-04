@@ -280,11 +280,11 @@
     <category term="乐趣" scheme="https://inkcodes.com/categories/%E4%B9%90%E8%B6%A3/"/>
     
     
-    <category term="web" scheme="https://inkcodes.com/tags/web/"/>
-    
     <category term="blog" scheme="https://inkcodes.com/tags/blog/"/>
     
     <category term="fluid" scheme="https://inkcodes.com/tags/fluid/"/>
+    
+    <category term="web" scheme="https://inkcodes.com/tags/web/"/>
     
     <category term="hexo" scheme="https://inkcodes.com/tags/hexo/"/>
     
@@ -366,9 +366,9 @@
     <category term="技术" scheme="https://inkcodes.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="web" scheme="https://inkcodes.com/tags/web/"/>
-    
     <category term="blog" scheme="https://inkcodes.com/tags/blog/"/>
+    
+    <category term="web" scheme="https://inkcodes.com/tags/web/"/>
     
   </entry>
   
@@ -540,9 +540,9 @@
     <category term="所思" scheme="https://inkcodes.com/categories/%E7%94%9F%E6%B4%BB/%E6%89%80%E6%80%9D/"/>
     
     
-    <category term="随想" scheme="https://inkcodes.com/tags/%E9%9A%8F%E6%83%B3/"/>
-    
     <category term="思考" scheme="https://inkcodes.com/tags/%E6%80%9D%E8%80%83/"/>
+    
+    <category term="随想" scheme="https://inkcodes.com/tags/%E9%9A%8F%E6%83%B3/"/>
     
   </entry>
   
