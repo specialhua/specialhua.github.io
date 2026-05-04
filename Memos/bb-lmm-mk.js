@@ -584,10 +584,35 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
 }
 
 .memos-hero p {
+  position: relative;
+  display: inline-block;
   margin: 0;
+  padding: 0.1rem 1.4rem 0.18rem;
   color: #666;
   font-size: 1rem;
   line-height: 1.7;
+}
+
+.memos-hero p::before,
+.memos-hero p::after {
+  position: absolute;
+  color: rgba(120, 120, 120, 0.34);
+  font-size: 2rem;
+  line-height: 1;
+  font-family: Georgia, "Times New Roman", serif;
+  pointer-events: none;
+}
+
+.memos-hero p::before {
+  content: "“";
+  top: -0.3rem;
+  left: 0;
+}
+
+.memos-hero p::after {
+  content: "”";
+  right: 0;
+  bottom: -0.58rem;
 }
 
 .bb-timeline {
@@ -713,6 +738,11 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
   color: #666;
 }
 
+[data-user-color-scheme="light"] .memos-hero p::before,
+[data-user-color-scheme="light"] .memos-hero p::after {
+  color: rgba(120, 120, 120, 0.34);
+}
+
 [data-user-color-scheme="light"] .memo-name {
   color: #1f1f1f;
 }
@@ -764,6 +794,11 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
 
 [data-user-color-scheme="dark"] .memos-hero p {
   color: rgba(220, 220, 220, 0.7);
+}
+
+[data-user-color-scheme="dark"] .memos-hero p::before,
+[data-user-color-scheme="dark"] .memos-hero p::after {
+  color: rgba(255, 255, 255, 0.24);
 }
 
 [data-user-color-scheme="dark"] .loader {
@@ -820,6 +855,15 @@ const DEFAULT_CONFIG={memos:"https://demo.usememos.com/",emactionApi:"https://em
 @media (max-width: 768px) {
   .memos-hero {
     margin-bottom: 2rem;
+  }
+
+  .memos-hero p {
+    padding: 0.08rem 1.1rem 0.14rem;
+  }
+
+  .memos-hero p::before,
+  .memos-hero p::after {
+    font-size: 1.72rem;
   }
 
   .memo-head {
